@@ -1,0 +1,2 @@
+class WorldBoss < ApplicationRecord
+end
