@@ -1,0 +1,5 @@
+<h1>Legend of Zelda: Breath of the Wild Regions</h1>
+
+<% @regions.each do |region| %>
+  <h3><a href="/regions/<%= region.id %>"><%= region.name %></a></h3>
+<% end %>

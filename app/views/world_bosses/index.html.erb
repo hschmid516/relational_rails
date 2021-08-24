@@ -1,0 +1,5 @@
+<h1>World of Warcraft(Shadowlands) World Bosses</h1>
+
+<% @world_bosses.each do |boss| %>
+  <h3><a href="/world_bosses/<%= boss.id %>"><%= boss.name %></a></h3>
+<% end %>
