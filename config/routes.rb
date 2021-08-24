@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/', to: 'home#index'
   get '/world_bosses', to: 'world_bosses#index'
   get '/regions', to: 'regions#index'
+  get '/world_bosses/:id', to: 'world_bosses#show'
 end
