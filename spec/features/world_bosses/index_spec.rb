@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Bosses index page", type: :feature do
   before :each do
-    @mortanis = WorldBoss.create!(name: "Mortanis", max_health:100_000_000, is_current_boss: false, zone: "Maldraxxus")
-    @muckformed = WorldBoss.create!(name: "Muckformed", max_health:90_000_000, is_current_boss: false, zone: "Revendreth")
+    @mortanis = WorldBoss.create!(name: "Mortanis", max_health:18_466_000, is_current_boss: false, zone: "Maldraxxus")
+    @muckformed = WorldBoss.create!(name: "Muckformed", max_health:19_000_000, is_current_boss: false, zone: "Revendreth")
   end
 
   it 'can see all world bosses recorded in the system' do
