@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_020335) do
+ActiveRecord::Schema.define(version: 2021_08_25_003917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.boolean "is_cold"
+    t.integer "korok_seeds"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "region_id"
+    t.index ["region_id"], name: "index_locations_on_region_id"
+  end
+
+  create_table "loots", force: :cascade do |t|
+    t.string "name"
+    t.boolean "memory"
+    t.integer "armor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "world_boss_id"
+    t.index ["world_boss_id"], name: "index_loots_on_world_boss_id"
+  end
 
   create_table "regions", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -32,4 +52,6 @@ ActiveRecord::Schema.define(version: 2021_08_24_020335) do
     t.string "zone"
   end
 
+  add_foreign_key "locations", "regions"
+  add_foreign_key "loots", "world_bosses"
 end
