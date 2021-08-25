@@ -1,0 +1,9 @@
+<h1>Legend of Zelda: Breath of the Wild - Locations</h1>
+
+<% @locations.each do |location| %>
+    <h3><a href="/locations/<%= location.id %>"><%= location.name %></a></h3>
+  <ul>
+    <li>Is Cold: <%= location.is_cold %></li>
+    <li>Number of Korok Seeds: <%= location.korok_seeds %></li>
+  </ul>
+  <% end %>
