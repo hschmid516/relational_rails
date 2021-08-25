@@ -1,0 +1,9 @@
+<h1>World of Warcraft(Shadowlands) Loot Table</h1>
+
+<% @loots.each do |loot| %>
+  <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
+  <ul>
+    <li>Is it a memory? <%= loot.memory %> </li>
+    <li> Armor: <%= loot.armor %> </li>
+  </ul>
+<% end %>
