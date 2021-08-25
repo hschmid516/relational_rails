@@ -24,7 +24,10 @@ RSpec.describe "Loots has an index page", type: :feature do
     expect(page).to have_content(@m_memory.name)
     expect(page).to have_content(@mu_memory.name)
     expect(page).to have_content(@feet.name)
-    expect(page).to have_content(@gloves.name)
+    expect(page).to have_content(@gloves.updated_at)
+    expect(page).to have_content(@feet.world_boss.id)
+    expect(page).to have_content(@m_memory.created_at)
+    expect(page).to have_content(@cloth_belt.id)
     expect(page).to have_content("World of Warcraft(Shadowlands) Loot Table")
   end
 end
