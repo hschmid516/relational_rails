@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get '/regions', to: 'regions#index'
   get '/regions/:id', to: 'regions#show'
+
+  get '/locations', to: 'locations#index'
 end
