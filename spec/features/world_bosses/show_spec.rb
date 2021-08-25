@@ -10,10 +10,10 @@ RSpec.describe "Bosses show page", type: :feature do
     visit "/world_bosses/#{@mortanis.id}"
 
     expect(page).to have_content(@mortanis.name)
-    expect(page).to have_content(@mortanis.max_health)
-    expect(page).to have_content(@mortanis.is_current_boss)
-    expect(page).to have_content(@mortanis.zone)
-    expect(page).to_not have_content(@muckformed.zone)
+    expect(page).to have_content("Max Health: #{@mortanis.max_health}")
+    expect(page).to have_content("Current World Boss? #{@mortanis.is_current_boss}")
+    expect(page).to have_content("Zone: #{@mortanis.zone}")
+    expect(page).to_not have_content("Zone: #{@muckformed.zone}")
     expect(page).to_not have_content(@muckformed.name)
   end
 end

@@ -8,4 +8,9 @@ Rails.application.routes.draw do
 
   get '/regions', to: 'regions#index'
   get '/regions/:id', to: 'regions#show'
+
+  get '/loots', to: 'loots#index'
+  get '/loots/:id', to: 'loots#show'
+
+  get '/world_bosses/:id/loots', to: 'world_bosses#loots_index'
 end
