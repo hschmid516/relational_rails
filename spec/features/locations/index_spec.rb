@@ -18,6 +18,14 @@ RSpec.describe "regions index page", type: :feature do
     expect(page).to have_content(@hylia.is_cold)
     expect(page).to have_content(@tarrey.korok_seeds)
     expect(page).to have_content(@hylia.korok_seeds)
+    expect(page).to have_content(@hylia.region_id)
+    expect(page).to have_content(@hylia.created_at)
+    expect(page).to have_content(@hylia.updated_at)
+    expect(page).to have_content(@tarrey.region_id)
+    expect(page).to have_content(@tarrey.created_at)
+    expect(page).to have_content(@tarrey.updated_at)
+    expect(page).to have_content(@hylia.id)
+    expect(page).to have_content(@tarrey.id)
     expect(page).to have_content("Legend of Zelda: Breath of the Wild - Locations")
   end
 end
