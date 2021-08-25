@@ -12,6 +12,6 @@ RSpec.describe "regions index page", type: :feature do
     expect(current_path).to eq("/regions")
     expect(page).to have_content(@great_plateau.name)
     expect(page).to have_content(@akkala.name)
-    expect(page).to have_content("Legend of Zelda: Breath of the Wild Regions")
+    expect(page).to have_content("Legend of Zelda: Breath of the Wild - Regions")
   end
 end
