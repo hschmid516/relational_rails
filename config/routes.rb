@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   get '/loots', to: 'loots#index'
   get '/loots/:id', to: 'loots#show'
+
+  get '/world_bosses/:id/loots', to: 'world_bosses#loots_index'
 end
