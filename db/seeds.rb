@@ -7,9 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 WorldBoss.destroy_all
 Region.destroy_all
-Location.destroy_all
 
-mortanis = WorldBoss.create!(name: "Mortanis", max_health:18_466_000, is_current_boss: false, zone: "Maldraxxus")
+Location.destroy_all
+Loot.destroy_all
+
 great_plateau = Region.create!(name: "The Great Plateau", has_divine_beast: false, shrines: 4)
 akkala = Region.create!(name: "Akkala", has_divine_beast: false, shrines: 8)
 
@@ -20,3 +21,15 @@ akkala.locations.create!(name: "Akkala Tower", is_cold: true, korok_seeds: 1)
 great_plateau.locations.create!(name: "Mount Hylia", is_cold: true, korok_seeds: 11)
 great_plateau.locations.create!(name: "Temple of Time", is_cold: false, korok_seeds: 8)
 great_plateau.locations.create!(name: "Shrine of Resurrection", is_cold: false, korok_seeds: 7)
+
+mortanis = WorldBoss.create!(name: "Mortanis", max_health:18_466_000, is_current_boss: false, zone: "Maldraxxus")
+muckformed = WorldBoss.create!(name: "Muckformed", max_health:19_000_000, is_current_boss: false, zone: "Revendreth")
+
+mortanis.loots.create!(name: "Band of the Risen Bonelord", memory: false, armor: 0)
+mortanis.loots.create!(name: "Spine Crawler Waistcord", memory: false, armor: 27)
+mortanis.loots.create!(name: "Memory of Fujieda", memory: true, armor: 0)
+
+muckformed.loots.create!(name: "Memory of a Frenzied Monstrosity", memory: true, armor: 0)
+muckformed.loots.create!(name: "Jingling Stone Stompers", memory: false, armor: 82)
+muckformed.loots.create!(name: "Hardened Castle Crusher", memory: false, armor: 21)
+
