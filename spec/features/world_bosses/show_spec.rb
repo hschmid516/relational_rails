@@ -6,7 +6,7 @@ RSpec.describe "Bosses show page", type: :feature do
     @muckformed = WorldBoss.create!(name: "Muckformed", max_health:19_000_000, is_current_boss: false, zone: "Revendreth")
   end
 
-  it 'displays the boss name' do
+  it 'displays the boss name and attributes' do
     visit "/world_bosses/#{@mortanis.id}"
 
     expect(page).to have_content(@mortanis.name)

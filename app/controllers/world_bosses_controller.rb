@@ -7,7 +7,7 @@ class WorldBossesController < ApplicationController
     @world_boss = WorldBoss.find(params[:id])
   end
 
-  def loots_index
+  def loots_index #make a new controller for this
     @world_boss = WorldBoss.find(params[:id])
     @loots = Loot.where(world_boss_id: @world_boss.id)
   end
