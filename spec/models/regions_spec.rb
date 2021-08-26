@@ -13,8 +13,4 @@ describe Region, type: :model do
   #   expect(@the_great_plateau.shrines).to eq(4)
   # end
 
-  it 'has locations ordered by name' do
-    expected = ['fdsfsd', 'fdsfs'] #or objects
-    expect(@the_great_plateau.locations_ordered).to eq(expected)
-  end
 end
