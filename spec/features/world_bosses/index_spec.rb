@@ -32,10 +32,16 @@ RSpec.describe "Bosses index page", type: :feature do
   end
 
   it 'shows world bosses ordered by most recently created' do
-    visit "/world_bosses"
 
     expect(@oranomonos.name).to appear_before(@muckformed.name)
     expect(@muckformed.name).to appear_before(@mortanis.name)
+
+  end
+
+  it 'shows created at stamp next to each boss' do
+    expect(page).to have_content("Created at: #{@oranomonos.created_at}")
+    expect(page).to have_content("Created at: #{@muckformed.created_at}")
+    expect(page).to have_content("Created at: #{@mortanis.created_at}")
 
   end
 end
