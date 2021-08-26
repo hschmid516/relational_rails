@@ -6,10 +6,10 @@ RSpec.describe "locations index page", type: :feature do
     @akkala = Region.create!(name: "Akkala", has_divine_beast: false, shrines: 8)
     @tarrey = @akkala.locations.create!(name: "Tarrey Town", is_cold: false, korok_seeds: 13)
     @hylia = @great_plateau.locations.create!(name: "Mount Hylia", is_cold: true, korok_seeds: 11)
+    visit "/locations/#{@tarrey.id}"
   end
 
   it 'can see all locations recorded in the system' do
-    visit "/locations/#{@tarrey.id}"
 
     expect(page).to have_content(@tarrey.name)
     expect(page).to have_content("Is Cold: #{@tarrey.is_cold}")
@@ -21,5 +21,20 @@ RSpec.describe "locations index page", type: :feature do
     expect(page).to_not have_content(@hylia.name)
     expect(page).to_not have_content("Is Cold: #{@hylia.is_cold}")
     expect(page).to_not have_content("Number of Korok Seeds: #{@hylia.korok_seeds}")
+  end
+
+  it 'has links to all regions and locations' do
+    expect(page).to have_link("All Regions")
+    expect(page).to have_link("All Locations")
+
+    click_link("All Regions")
+
+    expect(current_path).to eq("/regions")
+
+    visit "/locations/#{@tarrey.id}"
+
+    click_link("All Locations")
+
+    expect(current_path).to eq("/locations")
   end
 end

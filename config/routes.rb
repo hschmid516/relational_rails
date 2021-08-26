@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/locations', to: 'locations#index'
   get '/locations/:id', to: 'locations#show'
 
-  get '/regions/:id/locations', to: 'regions#locations_index'
+  get '/regions/:id/locations', to: 'region_locations#index'
 
   get '/loots', to: 'loots#index'
   get '/loots/:id', to: 'loots#show'

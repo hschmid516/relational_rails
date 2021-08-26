@@ -28,4 +28,21 @@ RSpec.describe "regions index page", type: :feature do
 
     expect(current_path).to eq("/regions/#{@akkala.id}")
   end
+
+  it 'shows regions ordered by most recently created' do
+    expect(@akkala.name).to appear_before(@great_plateau.name)
+  end
+
+  it 'shows created at next to each name' do
+    expect(page).to have_content(@great_plateau.created_at)
+    expect(page).to have_content(@akkala.created_at)
+  end
+
+  it 'has links to all regions and locations' do
+    expect(page).to have_link("All Locations")
+    
+    click_link("All Locations")
+
+    expect(current_path).to eq("/locations")
+  end
 end
