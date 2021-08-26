@@ -32,4 +32,9 @@ RSpec.describe "regions index page", type: :feature do
   it 'shows regions ordered by most recently created' do
     expect(@akkala.name).to appear_before(@great_plateau.name)
   end
+
+  it 'shows created at next to each name' do
+    expect(page).to have_content(@great_plateau.created_at)
+    expect(page).to have_content(@akkala.created_at)
+  end
 end
