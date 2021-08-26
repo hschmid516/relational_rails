@@ -4,6 +4,7 @@ RSpec.describe "Bosses index page", type: :feature do
   before :each do
     @mortanis = WorldBoss.create!(name: "Mortanis", max_health:18_466_000, is_current_boss: false, zone: "Maldraxxus")
     @muckformed = WorldBoss.create!(name: "Muckformed", max_health:19_000_000, is_current_boss: false, zone: "Revendreth")
+    @oranomonos = WorldBoss.create!(name: "Oranomonos the Everbranching", max_health:12_000_000, is_current_boss: true, zone: "Ardenweald")
     visit "/world_bosses"
   end
 
@@ -27,6 +28,14 @@ RSpec.describe "Bosses index page", type: :feature do
 
     click_link @muckformed.name
     expect(current_path).to eq("/world_bosses/#{@muckformed.id}")
+
+  end
+
+  it 'shows world bosses ordered by most recently created' do
+    visit "/world_bosses"
+
+    expect(@oranomonos.name).to appear_before(@muckformed.name)
+    expect(@muckformed.name).to appear_before(@mortanis.name)
 
   end
 end

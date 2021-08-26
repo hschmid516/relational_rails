@@ -1,6 +1,6 @@
 class WorldBossesController < ApplicationController
   def index
-    @world_bosses = WorldBoss.all
+    @world_bosses = WorldBoss.ordered_bosses
   end
 
   def show
