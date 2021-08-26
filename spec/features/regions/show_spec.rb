@@ -22,4 +22,27 @@ RSpec.describe "Regions show page", type: :feature do
   it 'displays county of number of children for each parent' do
     expect(page).to have_content("Number of Locations: 1")
   end
+
+  it 'has links to all regions and locations' do
+    expect(page).to have_link("All Regions")
+    expect(page).to have_link("All Locations")
+
+    click_link("All Regions")
+
+    expect(current_path).to eq("/regions")
+
+    visit "/regions/#{@great_plateau.id}"
+
+    click_link("All Locations")
+
+    expect(current_path).to eq("/locations")
+  end
+
+  it 'has a link to all of the regions locations' do
+    expect(page).to have_link("The Great Plateau - Locations")
+
+    click_link("The Great Plateau - Locations")
+
+    expect(current_path).to eq("/regions/#{@great_plateau.id}/locations")
+  end
 end

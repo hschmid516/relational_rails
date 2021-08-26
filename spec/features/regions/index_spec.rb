@@ -37,4 +37,12 @@ RSpec.describe "regions index page", type: :feature do
     expect(page).to have_content(@great_plateau.created_at)
     expect(page).to have_content(@akkala.created_at)
   end
+
+  it 'has links to all regions and locations' do
+    expect(page).to have_link("All Locations")
+    
+    click_link("All Locations")
+
+    expect(current_path).to eq("/locations")
+  end
 end
