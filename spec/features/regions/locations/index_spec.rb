@@ -21,4 +21,19 @@ RSpec.describe "locations index page", type: :feature do
     expect(page).to_not have_content("Is Cold: #{@hylia.is_cold}")
     expect(page).to_not have_content("Number of Korok Seeds: #{@hylia.korok_seeds}")
   end
+
+  it 'has links to all regions and locations' do
+    expect(page).to have_link("All Regions")
+    expect(page).to have_link("All Locations")
+
+    click_link("All Regions")
+
+    expect(current_path).to eq("/regions")
+
+    visit "/regions/#{@akkala.id}/locations"
+
+    click_link("All Locations")
+
+    expect(current_path).to eq("/locations")
+  end
 end
