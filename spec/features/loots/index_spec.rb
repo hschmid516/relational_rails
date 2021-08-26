@@ -43,4 +43,15 @@ RSpec.describe "Loots has an index page", type: :feature do
     expect(current_path).to eq("/loots/#{@cloth_belt.id}")
 
   end
+  it 'has a link for all bosses and all loot' do
+
+    expect(page).to have_link("All World Bosses")
+    click_link("All World Bosses")
+    expect(current_path).to eq("/world_bosses")
+
+    expect(page).to have_link("All Loot")
+    click_link("All Loot")
+    expect(current_path).to eq("/loots")
+
+  end
 end
