@@ -25,4 +25,29 @@ RSpec.describe "Bosses show page", type: :feature do
   it 'shows count of loot for each boss' do
     expect(page).to have_content("Pieces of loot: 3")
   end
+
+  it 'has a link for all bosses and all loot' do
+
+    expect(page).to have_link("All World Bosses")
+    click_link("All World Bosses")
+    expect(current_path).to eq("/world_bosses")
+
+    expect(page).to have_link("All Loot")
+    click_link("All Loot")
+    expect(current_path).to eq("/loots")
+
+  end
+
+  it 'has a link for specific bosses loot table' do
+    expect(page).to have_link("#{@mortanis.name} Loot Table")
+
+    click_link("Mortanis Loot Table")
+    expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
+
+    visit "/world_bosses/#{@muckformed.id}"
+    expect(page).to have_link("#{@muckformed.name} Loot Table")
+
+    click_link("Muckformed Loot Table")
+    expect(current_path).to eq("/world_bosses/#{@muckformed.id}/loots")
+  end
 end

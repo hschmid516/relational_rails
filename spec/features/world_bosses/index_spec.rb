@@ -42,6 +42,13 @@ RSpec.describe "Bosses index page", type: :feature do
     expect(page).to have_content("Created at: #{@oranomonos.created_at}")
     expect(page).to have_content("Created at: #{@muckformed.created_at}")
     expect(page).to have_content("Created at: #{@mortanis.created_at}")
+  end
+
+  it 'has a link for all bosses and all loot' do
+    expect(page).to have_link("All Loot")
+
+    click_link("All Loot")
+    expect(current_path).to eq("/loots")
 
   end
 end
