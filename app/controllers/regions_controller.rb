@@ -6,4 +6,17 @@ class RegionsController < ApplicationController
   def show
     @region = Region.find(params[:id])
   end
+
+  def new
+  end
+
+  def create
+    region = Region.create!(region_params)
+    redirect_to "/regions"
+  end
+
+private
+  def region_params
+    params.permit(:name, :has_divine_beast, :shrines)
+  end
 end

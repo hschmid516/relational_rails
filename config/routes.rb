@@ -7,17 +7,17 @@ Rails.application.routes.draw do
   get '/world_bosses/:id', to: 'world_bosses#show'
 
   get '/regions', to: 'regions#index'
+  get '/regions/new', to: 'regions#new'
   get '/regions/:id', to: 'regions#show'
-
+  get '/regions/:id/locations', to: 'region_locations#index'
+  post '/regions', to: 'regions#create'
 
   get '/locations', to: 'locations#index'
   get '/locations/:id', to: 'locations#show'
 
-  get '/regions/:id/locations', to: 'region_locations#index'
 
   get '/loots', to: 'loots#index'
   get '/loots/:id', to: 'loots#show'
 
   get '/world_bosses/:id/loots', to: 'world_bosses#loots_index'
-
 end

@@ -1,0 +1,11 @@
+<h1>Create a New Region</h1>
+
+<%= form_with url: '/regions', method: :post, local: true do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %><br><br>
+  <%= form.label :has_divine_beast %><br>
+  <%= form.check_box :has_divine_beast %><br><br>
+  <%= form.label :number_of_shrines %><br>
+  <%= form.number_field :shrines %><br><br>
+  <%= form.submit "Create Region" %>
+<% end %>

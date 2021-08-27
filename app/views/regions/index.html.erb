@@ -4,3 +4,5 @@
 <% @regions.each do |region| %>
   <h3><a href="/regions/<%= region.id %>"><%= region.name %></a> Created at: <%= region.created_at %></h3>
 <% end %>
+
+<%= link_to "New Region", "/regions/new" %>
