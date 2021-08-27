@@ -10,10 +10,14 @@ Rails.application.routes.draw do
   get '/world_bosses/:id/loots', to: 'world_boss_loots#index'
   get '/world_bosses/:id/edit', to: 'world_bosses#edit'
   patch '/world_bosses/:id', to: 'world_bosses#update'
+  get '/world_bosses/:id/loots/new', to: 'world_boss_loots#new'
+  post '/world_bosses/:id/loots', to: 'world_boss_loots#create'
 
 
   get '/loots', to: 'loots#index'
   get '/loots/:id', to: 'loots#show'
+  get '/loots/:id/edit', to: 'loots#edit'
+  patch '/loots/:id', to: 'loots#update'
 
   get '/regions', to: 'regions#index'
   get '/regions/:id', to: 'regions#show'
