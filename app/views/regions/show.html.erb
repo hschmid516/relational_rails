@@ -6,3 +6,5 @@
 <p>Number of Locations: <%= @region.location_count %></p>
 
 <a href="/regions/<%= "#{@region.id}"%>/locations"><%= @region.name %> - Locations</a>
+
+<%= button_to "Edit #{@region.name}", "/regions/#{@region.id}/edit", method: :get %>

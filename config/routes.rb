@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   get '/regions', to: 'regions#index'
   get '/regions/new', to: 'regions#new'
   get '/regions/:id', to: 'regions#show'
+  get '/regions/:id/edit', to: 'regions#edit'
   get '/regions/:id/locations', to: 'region_locations#index'
   post '/regions', to: 'regions#create'
+  patch '/regions/:id', to: 'regions#update'
 
   get '/locations', to: 'locations#index'
   get '/locations/:id', to: 'locations#show'
