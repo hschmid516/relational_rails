@@ -40,7 +40,7 @@ RSpec.describe "regions index page", type: :feature do
 
   it 'has links to all regions and locations' do
     expect(page).to have_link("All Locations")
-    
+
     click_link("All Locations")
 
     expect(current_path).to eq("/locations")
