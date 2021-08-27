@@ -1,0 +1,12 @@
+<h1> <%=  "Edit Loot #{@loot.name}"%></h1>
+<%= form_with url: "/loots/#{@loot.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :name %><br>
+  <%= form.text_field :name %>
+  <p><%= form.label :armor %><br>
+  <%= form.number_field :armor %>
+  <p> <%= form.label :memory %><br>
+  <%= form.check_box :memory %><br><br>
+
+  <%= form.submit "Update Loot" %>
+
+<% end %>

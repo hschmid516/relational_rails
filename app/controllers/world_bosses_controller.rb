@@ -26,6 +26,6 @@ class WorldBossesController < ApplicationController
   end
 private
   def boss_params
-    params.permit(:name)
+    params.permit(:name, :max_health, :zone, :is_current_boss)
   end
 end

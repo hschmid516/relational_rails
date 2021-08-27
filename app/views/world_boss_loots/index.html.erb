@@ -14,3 +14,5 @@
     <li> Armor: <%= loot.armor %> </li>
   </ul>
 <% end %>
+
+<%= button_to "New Loot", "/world_bosses/#{@world_boss.id}/loots/new", method: :get %>

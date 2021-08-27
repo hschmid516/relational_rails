@@ -10,3 +10,5 @@
   <li>Is it a memory? <%= @loot.memory %> </li>
   <li> Armor: <%= @loot.armor %> </li>
 </ul>
+
+<%= button_to "Update #{@loot.name}", "/loots/#{@loot.id}/edit", method: :get %>
