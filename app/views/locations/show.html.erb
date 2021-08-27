@@ -10,3 +10,5 @@
   <li>Is Cold: <%= @location.is_cold %></li>
   <li>Number of Korok Seeds: <%= @location.korok_seeds %></li>
 </ul>
+
+<%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get %>

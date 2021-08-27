@@ -18,7 +18,8 @@ Rails.application.routes.draw do
 
   get '/locations', to: 'locations#index'
   get '/locations/:id', to: 'locations#show'
-
+  get '/locations/:id/edit', to: 'locations#edit'
+  patch '/locations/:id', to: 'locations#update'
 
   get '/loots', to: 'loots#index'
   get '/loots/:id', to: 'loots#show'
