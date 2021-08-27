@@ -1,16 +1,1 @@
-<a href="/world_bosses"> All World Bosses</a>
-<a href="/loots"> All Loot</a>
 
-<h1><%= "#{@world_boss.name} Loot Table" %></h1>
-
-<% @loots.each do |loot| %>
-  <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
-  <ul>
-    <li> ID: <%= loot.id %> </li>
-    <li> Boss ID: <%= loot.world_boss.id %> </li>
-    <li> Created at: <%= loot.created_at %> </li>
-    <li> Updated at: <%= loot.updated_at %> </li>
-    <li>Is it a memory? <%= loot.memory %> </li>
-    <li> Armor: <%= loot.armor %> </li>
-  </ul>
-<% end %>
