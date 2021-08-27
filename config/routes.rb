@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post 'world_bosses', to: 'world_bosses#create'
   get '/world_bosses/:id', to: 'world_bosses#show'
   get '/world_bosses/:id/loots', to: 'world_boss_loots#index'
+  get '/world_bosses/:id/edit', to: 'world_bosses#edit'
+  patch '/world_bosses/:id', to: 'world_bosses#update'
+
 
   get '/loots', to: 'loots#index'
   get '/loots/:id', to: 'loots#show'

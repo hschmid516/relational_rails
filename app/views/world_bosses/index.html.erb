@@ -6,5 +6,6 @@
   <h3><a href="/world_bosses/<%= boss.id %>"><%= boss.name %></a> Created at: <%= boss.created_at %></h3>
 <% end %>
 
-
-<%= link_to "New Boss", "/world_bosses/new" %>
+<%= form_with url: '/world_bosses/new', method: :get, local: true do |form| %>
+  <%= form.submit "New Boss" %>
+<% end %>

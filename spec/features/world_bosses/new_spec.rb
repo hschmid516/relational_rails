@@ -4,7 +4,7 @@ RSpec.describe 'the Boss creation' do
   it 'links to the new page to create a world boss' do
     visit '/world_bosses'
 
-    click_link('New Boss')
+    click_button('New Boss')
     expect(current_path).to eq('/world_bosses/new')
   end
 
