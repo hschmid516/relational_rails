@@ -16,7 +16,7 @@ RSpec.describe "create region location" do
 
     fill_in("Name", with: "Death Mountain")
     check("Is cold")
-    fill_in("Korok seeds", with: 7)
+    fill_in("Korok seeds", with: 32)
     click_button 'Create Location'
 
     expect(current_path).to eq("/regions/#{eldin.id}/locations")
