@@ -7,8 +7,16 @@ class WorldBossesController < ApplicationController
     @world_boss = WorldBoss.find(params[:id])
   end
 
-  def loots_index #make a new controller for this
-    @world_boss = WorldBoss.find(params[:id])
-    @loots = Loot.where(world_boss_id: @world_boss.id)
+  def new
+  end
+
+  def create
+    world_boss = WorldBoss.create(boss_params)
+    redirect_to '/world_bosses'
+  end
+
+private
+  def boss_params
+    params.permit(:name)
   end
 end

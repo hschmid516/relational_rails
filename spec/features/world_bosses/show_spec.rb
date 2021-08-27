@@ -38,16 +38,16 @@ RSpec.describe "Bosses show page", type: :feature do
 
   end
 
-  it 'has a link for specific bosses loot table' do
-    expect(page).to have_link("#{@mortanis.name} Loot Table")
-
-    click_link("Mortanis Loot Table")
-    expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
-
-    visit "/world_bosses/#{@muckformed.id}"
-    expect(page).to have_link("#{@muckformed.name} Loot Table")
-
-    click_link("Muckformed Loot Table")
-    expect(current_path).to eq("/world_bosses/#{@muckformed.id}/loots")
-  end
+  # it 'has a link for specific bosses loot table' do
+  #   expect(page).to have_link("#{@mortanis.name} Loot Table")
+  #
+  #   click_link("Mortanis Loot Table")
+  #   expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
+  #
+  #   visit "/world_bosses/#{@muckformed.id}"
+  #   expect(page).to have_link("#{@muckformed.name} Loot Table")
+  #
+  #   click_link("Muckformed Loot Table")
+  #   expect(current_path).to eq("/world_bosses/#{@muckformed.id}/loots")
+  # end
 end
