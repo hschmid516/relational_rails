@@ -5,7 +5,4 @@
   <h3><a href="/regions/<%= region.id %>"><%= region.name %></a> Created at: <%= region.created_at %></h3>
 <% end %>
 
-
-<%= form_with url: '/regions/new', method: :get, local: true do |form| %>
-  <%= form.submit "New Region" %>
-<% end %>
+<%= button_to "New Region", "/regions/new", method: :get %>

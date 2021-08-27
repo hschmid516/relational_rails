@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/regions/:id/locations', to: 'region_locations#index'
   post '/regions', to: 'regions#create'
   patch '/regions/:id', to: 'regions#update'
+  get '/regions/:id/locations/new', to: 'region_locations#new'
+  post '/regions/:id/locations', to: 'region_locations#create'
 
   get '/locations', to: 'locations#index'
   get '/locations/:id', to: 'locations#show'

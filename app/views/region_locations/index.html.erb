@@ -13,3 +13,5 @@
     <li>Number of Korok Seeds: <%= location.korok_seeds %></li>
   </ul>
 <% end %>
+
+<%= button_to "New Location", "/regions/#{@region.id}/locations/new", method: :get %>
