@@ -19,8 +19,5 @@ RSpec.describe 'the Boss creation' do
 
     expect(current_path).to eq("/world_bosses")
     expect(page).to have_content('Valinor')
-    expect(page).to have_content('18000')
-    expect(page).to have_content('Bastion')
-    expect(page).to have_content('Is current boss?')
   end
 end

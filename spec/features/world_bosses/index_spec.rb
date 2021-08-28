@@ -51,4 +51,9 @@ RSpec.describe "Bosses index page", type: :feature do
     expect(current_path).to eq("/loots")
 
   end
+
+  it 'shows a link to edit the Boss info' do
+    click_button("Edit #{@mortanis.name}")
+    expect(current_path).to eq("/world_bosses/#{@mortanis.id}/edit")
+  end
 end
