@@ -4,8 +4,9 @@ RSpec.describe "locations index page", type: :feature do
   before :each do
     @great_plateau = Region.create!(name: "The Great Plateau", has_divine_beast: false, shrines: 4)
     @akkala = Region.create!(name: "Akkala", has_divine_beast: false, shrines: 8)
-    @tarrey = @akkala.locations.create!(name: "Tarrey Town", is_cold: false, korok_seeds: 13)
+    @tarrey = @akkala.locations.create!(name: "Tarrey Town", is_cold: true, korok_seeds: 13)
     @hylia = @great_plateau.locations.create!(name: "Mount Hylia", is_cold: true, korok_seeds: 11)
+    @shrine = @great_plateau.locations.create!(name: "Shrine of Resurrection", is_cold: false, korok_seeds: 10)
     visit "/locations"
   end
 
@@ -49,5 +50,16 @@ RSpec.describe "locations index page", type: :feature do
     click_link("All Regions")
 
     expect(current_path).to eq("/regions")
+  end
+
+  it 'only shows locations that are cold' do
+    expect(page).to_not have_content('Is Cold: false')
+    expect(page).to have_content('Is Cold: true')
+  end
+
+  it 'can update locations from index page' do
+    click_button("Edit #{@tarrey.name}")
+
+    expect(current_path).to eq("/locations/#{@tarrey.id}/edit")
   end
 end
