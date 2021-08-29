@@ -38,4 +38,11 @@ RSpec.describe "Loots shows on individual boss pages", type: :feature do
     expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
     expect(@ring.name).to appear_before(@cloth_belt.name)
   end
+
+  it 'allows the user to put in a number and submit' do
+    fill_in('armor', with: 50)
+    click_button("Filter by armor")
+
+    expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
+  end
 end

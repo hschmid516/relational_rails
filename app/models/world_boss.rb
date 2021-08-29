@@ -16,4 +16,9 @@ class WorldBoss < ApplicationRecord
       loots
     end
   end
+
+  def min_armor(armor)
+    armor = 0 if armor == nil
+    loots.where("armor > #{armor}")
+  end
 end

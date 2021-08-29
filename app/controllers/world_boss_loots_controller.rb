@@ -3,6 +3,8 @@ class WorldBossLootsController < ApplicationController
   def index
     @world_boss = WorldBoss.find(params[:id])
     @loots = @world_boss.sort_loots(params[:sort])
+    @loots = @world_boss.min_armor(params[:armor])
+
   end
 
   def new
