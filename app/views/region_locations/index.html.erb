@@ -15,7 +15,7 @@
   </ul>
 <% end %>
 
-<%= button_to "New Location", "/regions/#{@region.id}/locations/new", method: :get %><br>
+<%= button_to "New Location", "/regions/#{@region.id}/locations/new", method: :get, class: 'button' %><br>
 
 <%= link_to "Sort Locations Alphabetically", "/regions/#{@region.id}/locations?order=true"%><br><br>
 
@@ -23,5 +23,5 @@
   <% params[:korok_seeds] ||= 0 %>
   <%= form.label :korok_seeds %>
   <%= form.number_field :korok_seeds %>
-  <%= form.submit "Only return records with more than #{params[:korok_seeds]} Korok Seeds"  %>
+  <%= form.submit "Only return records with more than #{params[:korok_seeds]} Korok Seeds", class: 'button'  %>
 <% end %>
