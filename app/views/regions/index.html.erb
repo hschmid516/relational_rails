@@ -3,6 +3,7 @@
 
 <% @regions.each do |region| %>
   <h3><a href="/regions/<%= region.id %>"><%= region.name %></a> Created at: <%= region.created_at %></h3>
-<% end %>
+  <%= button_to "Edit #{region.name}", "/regions/#{region.id}/edit", method: :get %>
+<% end %><br><br>
 
 <%= button_to "New Region", "/regions/new", method: :get %>
