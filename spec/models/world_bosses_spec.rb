@@ -24,4 +24,8 @@ describe WorldBoss, type: :model do
     expect(@mortanis.loot_count).to eq(3)
     expect(@muckformed.loot_count).to eq(1)
   end
+
+  it 'filters armor by amount' do
+    expect(@mortanis.min_armor(26)).to eq([@cloth_belt])
+  end
 end

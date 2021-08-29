@@ -3,7 +3,7 @@
 
 <h1><%= "#{@world_boss.name} Loot Table" %></h1>
 
-
+<% @loots = @world_boss.min_armor(params[:armor]) if params[:armor] %>
 <% @loots.each do |loot| %>
   <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
   <ul>
