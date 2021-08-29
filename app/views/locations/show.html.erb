@@ -1,3 +1,6 @@
+<body id='show'>
+<div id="show_background">
+
 <a href="/regions">All Regions</a>
 <a href="/locations">All Locations</a>
 <h1><%= @location.name %></h1>
@@ -11,5 +14,7 @@
   <li>Number of Korok Seeds: <%= @location.korok_seeds %></li>
 </ul>
 
-<%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get %>
-<%= button_to "Delete #{@location.name}", "/locations/#{@location.id}", method: :delete %>
+<%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get, class: 'button_show' %><br>
+<%= button_to "Delete #{@location.name}", "/locations/#{@location.id}", method: :delete, class: 'button_show' %>
+</div>
+</body>

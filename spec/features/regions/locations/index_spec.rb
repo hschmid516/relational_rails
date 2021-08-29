@@ -4,7 +4,7 @@ RSpec.describe "locations index page", type: :feature do
   before :each do
     @great_plateau = Region.create!(name: "The Great Plateau", has_divine_beast: false, shrines: 4)
     @akkala = Region.create!(name: "Akkala", has_divine_beast: false, shrines: 8)
-    @hylia = @great_plateau.locations.create!(name: "Mount Hylia", is_cold: true, korok_seeds: 11)
+    @hylia = @great_plateau.locations.create!(name: "Mount Hylia", is_cold: true, korok_seeds: 15)
     @tarrey = @akkala.locations.create!(name: "Tarrey Town", is_cold: false, korok_seeds: 13)
     @lomei = @akkala.locations.create!(name: "Lomei Labrynth", is_cold: false, korok_seeds: 5)
     @tower = @akkala.locations.create!(name: "Akkala Tower", is_cold: true, korok_seeds: 1)
@@ -45,12 +45,14 @@ RSpec.describe "locations index page", type: :feature do
     expect(@lomei.name).to appear_before(@tarrey.name)
   end
 
-  xit 'has a form to input a number' do
-    fill_in('Korok seeds', with: 10)
-    click_button("Only return records with more than 10 Korok Seeds")
+  it 'has a form to input a number' do
+    fill_in('Korok seeds', with: 6)
+    click_button("Only return records with more than 0 Korok Seeds")
 
-    expect(current_path).to eq("/regions/#{eldin.id}/locations")
-    expect(page).to have_content("Mount Hylia", "Tarrey Town")
-    expect(page).to.not have_content("Lomei Labrynth", "Akkala Tower")
+
+    expect(current_path).to eq("/regions/#{@akkala.id}/locations")
+    expect(page).to have_content("Tarrey Town")
+    expect(page).to_not have_content("Lomei Labrynth")
+    expect(page).to_not have_content("Akkala Tower")
   end
 end
