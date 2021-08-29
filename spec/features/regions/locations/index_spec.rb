@@ -45,12 +45,13 @@ RSpec.describe "locations index page", type: :feature do
     expect(@lomei.name).to appear_before(@tarrey.name)
   end
 
-  xit 'has a form to input a number' do
-    fill_in('Korok seeds', with: 10)
-    click_button("Only return records with more than 10 Korok Seeds")
+  it 'has a form to input a number' do
+    fill_in('Korok seeds', with: 6)
+    click_button("Only return records with more than 0 Korok Seeds")
 
-    expect(current_path).to eq("/regions/#{eldin.id}/locations")
-    expect(page).to have_content("Mount Hylia", "Tarrey Town")
-    expect(page).to.not have_content("Lomei Labrynth", "Akkala Tower")
+    expect(current_path).to eq("/regions/#{@akkala.id}/locations")
+    expect(page).to have_content("Tarrey Town")
+    expect(page).to_not have_content("Lomei Labrynth")
+    expect(page).to_not have_content("Akkala Tower")
   end
 end
