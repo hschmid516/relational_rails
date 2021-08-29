@@ -25,6 +25,11 @@ class RegionsController < ApplicationController
     redirect_to "/regions/#{region.id}"
   end
 
+  def destroy
+    region = Region.destroy(params[:id])
+    redirect_to '/regions'
+  end
+
 private
   def region_params
     params.permit(:name, :has_divine_beast, :shrines)

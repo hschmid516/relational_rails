@@ -17,6 +17,11 @@ class LocationsController < ApplicationController
     redirect_to "/locations/#{location.id}"
   end
 
+  def destroy
+    Location.destroy(params[:id])
+    redirect_to '/locations'
+  end
+
 private
   def location_params
     params.permit(:name, :is_cold, :korok_seeds)

@@ -1,7 +1,7 @@
 class RegionLocationsController < ApplicationController
   def index
     @region = Region.find(params[:id])
-    @locations = @region.locations
+    @locations = @region.min_koroks(params[:korok_seeds])
   end
 
   def new

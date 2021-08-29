@@ -2,13 +2,16 @@
 <h1>Legend of Zelda: Breath of the Wild - Locations</h1>
 
 <% @locations.each do |location| %>
-    <h3><a href="/locations/<%= location.id %>"><%= location.name %></a></h3>
-  <ul>
-    <li>ID: <%= location.id %></li>
-    <li>Region ID: <%= location.region_id %></li>
-    <li>Created At: <%= location.created_at %></li>
-    <li>Updated At: <%= location.updated_at %></li>
-    <li>Is Cold: <%= location.is_cold %></li>
-    <li>Number of Korok Seeds: <%= location.korok_seeds %></li>
-  </ul>
+  <% if location.is_cold == true %>
+      <h3><a href="/locations/<%= location.id %>"><%= location.name %></a></h3>
+    <ul>
+      <li>ID: <%= location.id %></li>
+      <li>Region ID: <%= location.region_id %></li>
+      <li>Created At: <%= location.created_at %></li>
+      <li>Updated At: <%= location.updated_at %></li>
+      <li>Is Cold: <%= location.is_cold %></li>
+      <li>Number of Korok Seeds: <%= location.korok_seeds %></li>
+    </ul>
+    <%= button_to "Edit #{location.name}", "/locations/#{location.id}/edit", method: :get %>
   <% end %>
+<% end %>
