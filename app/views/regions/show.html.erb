@@ -5,4 +5,7 @@
 <p>How many shrines? <%= @region.shrines %></p>
 <p>Number of Locations: <%= @region.location_count %></p>
 
-<a href="/regions/<%= "#{@region.id}"%>/locations"><%= @region.name %> - Locations</a>
+<a href="/regions/<%= "#{@region.id}"%>/locations"><%= @region.name %> - Locations</a><br><br>
+
+<%= button_to "Edit #{@region.name}", "/regions/#{@region.id}/edit", method: :get %>
+<%= button_to "Delete #{@region.name}", "/regions/#{@region.id}", method: :delete %>
