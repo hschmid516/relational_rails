@@ -1,0 +1,14 @@
+<h1> <%=  "Edit A Boss #{@world_boss.name}"%></h1>
+<%= form_with url: "/world_bosses/#{@world_boss.id}", method: :patch, local: true do |form| %>
+  <p><%= form.label :name %><br>
+  <%= form.text_field :name %>
+  <p><%= form.label :max_health %><br>
+  <%= form.number_field :max_health %>
+  <p> <%= form.label :is_current_boss %><br>
+  <%= form.check_box :is_current_boss %>
+  <p><%= form.label :zone %><br>
+  <%= form.text_field :zone %></p>
+
+  <%= form.submit "Update Boss" %>
+
+<% end %>

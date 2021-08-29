@@ -50,4 +50,13 @@ RSpec.describe "Bosses show page", type: :feature do
     click_link("Muckformed Loot Table")
     expect(current_path).to eq("/world_bosses/#{@muckformed.id}/loots")
   end
+
+  it 'deletes a boss' do
+    click_button("Delete Mortanis")
+    expect(current_path).to eq("/world_bosses")
+    expect(page).to_not have_content(@mortanis.name)
+
+    visit "/loots"
+    expect(page).to_not have_content(@ring)
+  end
 end

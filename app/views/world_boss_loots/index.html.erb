@@ -3,6 +3,7 @@
 
 <h1><%= "#{@world_boss.name} Loot Table" %></h1>
 
+<% @loots = @world_boss.min_armor(params[:armor]) if params[:armor] %>
 <% @loots.each do |loot| %>
   <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
   <ul>
@@ -13,4 +14,14 @@
     <li>Is it a memory? <%= loot.memory %> </li>
     <li> Armor: <%= loot.armor %> </li>
   </ul>
+<% end %>
+
+<%= button_to "New Loot", "/world_bosses/#{@world_boss.id}/loots/new", method: :get %>
+<%= link_to "Sort Loot Alphabetically", "/world_bosses/#{@world_boss.id}/loots?sort=true" %>
+
+<%= form_with url: "/world_bosses/#{@world_boss.id}/loots", method: :get, local: true do |form| %>
+<% params[:armor] ||= 0 %>
+<%= form.label :armor %>
+<%= form.number_field :armor %>
+<%= form.submit "Filter by armor" %>
 <% end %>

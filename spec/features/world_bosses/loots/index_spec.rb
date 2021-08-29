@@ -31,6 +31,18 @@ RSpec.describe "Loots shows on individual boss pages", type: :feature do
     expect(page).to have_link("All Loot")
     click_link("All Loot")
     expect(current_path).to eq("/loots")
+  end
 
+  it 'can sort the loot by name' do
+    click_link("Sort Loot")
+    expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
+    expect(@ring.name).to appear_before(@cloth_belt.name)
+  end
+
+  it 'allows the user to put in a number and submit' do
+    fill_in('armor', with: 50)
+    click_button("Filter by armor")
+
+    expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
   end
 end

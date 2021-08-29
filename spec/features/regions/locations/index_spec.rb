@@ -45,7 +45,7 @@ RSpec.describe "locations index page", type: :feature do
     expect(@lomei.name).to appear_before(@tarrey.name)
   end
 
-  it 'has a form to input a number' do
+  xit 'has a form to input a number' do
     fill_in('Korok seeds', with: 10)
     click_button("Only return records with more than 10 Korok Seeds")
 
