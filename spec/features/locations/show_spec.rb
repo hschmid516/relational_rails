@@ -37,4 +37,11 @@ RSpec.describe "locations index page", type: :feature do
 
     expect(current_path).to eq("/locations")
   end
+
+  it 'can delete locations' do
+    click_button("Delete #{@tarrey.name}")
+
+    expect(current_path).to eq("/locations")
+    expect(page).to_not have_content("#{@tarrey.name}")
+  end
 end
