@@ -1,9 +1,12 @@
-<a href="/locations">All Locations</a>
-<h1>Legend of Zelda: Breath of the Wild - Regions</h1>
+<body id="region">
+  <a href="/locations">All Locations</a>
+  <h1>Legend of Zelda: Breath of the Wild - Regions</h1>
 
-<% @regions.each do |region| %>
-  <h3><a href="/regions/<%= region.id %>"><%= region.name %></a> Created at: <%= region.created_at %></h3>
-  <%= button_to "Edit #{region.name}", "/regions/#{region.id}/edit", method: :get %>
-<% end %><br><br>
+  <% @regions.each do |region| %>
+    <h3><a href="/regions/<%= region.id %>"><%= region.name %></a></h3>
+    <p><b>Created at: <%= region.created_at %></b></p>
+    <b><%= button_to "Edit #{region.name}", "/regions/#{region.id}/edit", method: :get, class: 'button' %></b><br><br>
+  <% end %><br><br>
 
-<%= button_to "New Region", "/regions/new", method: :get %>
+  <%= button_to "New Region", "/regions/new", method: :get, class: 'button' %>
+</body>
