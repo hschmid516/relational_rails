@@ -1,24 +1,31 @@
 require 'rails_helper'
 
 describe WorldBoss, type: :model do
+  it {should have_many :loots}
+
   before(:each) do
-    @mortanis = WorldBoss.create!(name: "Mortanis", max_health:100_000_000, is_current_boss: false, zone: "Maldraxxus")
+    @mortanis = WorldBoss.create!(name: "Mortanis", max_health:18_466_000, is_current_boss: false, zone: "Maldraxxus")
     @muckformed = WorldBoss.create!(name: "Muckformed", max_health:19_000_000, is_current_boss: false, zone: "Revendreth")
     @oranomonos = WorldBoss.create!(name: "Oranomonos the Everbranching", max_health:12_000_000, is_current_boss: true, zone: "Ardenweald")
 
+    @ring = @mortanis.loots.create!(name: "Band of the Risen Bonelord", memory: false, armor: 0)
+    @cloth_belt = @mortanis.loots.create!(name: "Spine Crawler Waistcord", memory: false, armor: 27)
+    @m_memory = @mortanis.loots.create!(name: "Memory of Fujieda", memory: true, armor: 0)
+    @mu_memory = @muckformed.loots.create!(name: "Memory of a Frenzied Monstrosity", memory: true, armor: 0)
   end
 
-  it 'exists and has attributes' do
-    expect(@mortanis).to be_a(WorldBoss)
-    expect(@mortanis.name).to eq("Mortanis")
-    expect(@mortanis.max_health).to eq(100_000_000)
-    expect(@mortanis.is_current_boss).to eq(false)
-    expect(@mortanis.zone).to eq("Maldraxxus")
-  end
-
-  it 'has world bosses ordered by name' do
-
+  it 'shows bosses ordered by most recently created' do
     expected = [@oranomonos, @muckformed, @mortanis]
+
     expect(WorldBoss.ordered_bosses).to eq(expected)
+  end
+
+  it 'counts the amount of loot per boss' do
+    expect(@mortanis.loot_count).to eq(3)
+    expect(@muckformed.loot_count).to eq(1)
+  end
+
+  it 'filters armor by amount' do
+    expect(@mortanis.min_armor(26)).to eq([@cloth_belt])
   end
 end
