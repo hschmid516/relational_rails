@@ -38,16 +38,26 @@ RSpec.describe "Bosses show page", type: :feature do
 
   end
 
-  # it 'has a link for specific bosses loot table' do
-  #   expect(page).to have_link("#{@mortanis.name} Loot Table")
-  #
-  #   click_link("Mortanis Loot Table")
-  #   expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
-  #
-  #   visit "/world_bosses/#{@muckformed.id}"
-  #   expect(page).to have_link("#{@muckformed.name} Loot Table")
-  #
-  #   click_link("Muckformed Loot Table")
-  #   expect(current_path).to eq("/world_bosses/#{@muckformed.id}/loots")
-  # end
+  it 'has a link for specific bosses loot table' do
+    expect(page).to have_link("#{@mortanis.name} Loot Table")
+
+    click_link("Mortanis Loot Table")
+    expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
+
+    visit "/world_bosses/#{@muckformed.id}"
+    expect(page).to have_link("#{@muckformed.name} Loot Table")
+
+    click_link("Muckformed Loot Table")
+    expect(current_path).to eq("/world_bosses/#{@muckformed.id}/loots")
+  end
+
+#   As a visitor
+# When I visit a parent show page
+# Then I see a link to delete the parent
+# When I click the link "Delete Parent"
+# Then a 'DELETE' request is sent to '/parents/:id',
+# the parent is deleted, and all child records are deleted
+# and I am redirected to the parent index page where I no longer see this parent
+
+
 end
