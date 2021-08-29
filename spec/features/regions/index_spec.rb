@@ -39,10 +39,14 @@ RSpec.describe "regions index page", type: :feature do
   end
 
   it 'has links to all regions and locations' do
-    expect(page).to have_link("All Locations")
-    
     click_link("All Locations")
 
     expect(current_path).to eq("/locations")
+  end
+
+  it 'can update regions from index page' do
+    click_button("Edit #{@great_plateau.name}")
+
+    expect(current_path).to eq("/regions/#{@great_plateau.id}/edit")
   end
 end

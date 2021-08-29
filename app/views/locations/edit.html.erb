@@ -1,0 +1,11 @@
+<h1>Update <%= @location.name %></h1>
+
+<%= form_with url: "/locations/#{@location.id}", method: :patch, local: true do |form| %>
+<%= form.label :name %><br>
+<%= form.text_field :name %><br><br>
+<%= form.label :is_cold %><br>
+<%= form.check_box :is_cold %><br><br>
+<%= form.label :korok_seeds %><br>
+<%= form.number_field :korok_seeds %><br><br>
+  <%= form.submit "Update Location" %>
+<% end %>
