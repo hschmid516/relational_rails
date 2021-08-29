@@ -1,5 +1,5 @@
 class WorldBoss < ApplicationRecord
-  has_many :loots
+  has_many :loots, dependent: :delete_all
 
   def self.ordered_bosses
     order(created_at: :desc)

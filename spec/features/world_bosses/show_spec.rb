@@ -51,13 +51,12 @@ RSpec.describe "Bosses show page", type: :feature do
     expect(current_path).to eq("/world_bosses/#{@muckformed.id}/loots")
   end
 
-#   As a visitor
-# When I visit a parent show page
-# Then I see a link to delete the parent
-# When I click the link "Delete Parent"
-# Then a 'DELETE' request is sent to '/parents/:id',
-# the parent is deleted, and all child records are deleted
-# and I am redirected to the parent index page where I no longer see this parent
+  it 'deletes a boss' do
+    click_button("Delete Mortanis")
+    expect(current_path).to eq("/world_bosses")
+    expect(page).to_not have_content(@mortanis.name)
 
-
+    visit "/loots"
+    expect(page).to_not have_content(@ring)
+  end
 end

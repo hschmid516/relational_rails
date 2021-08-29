@@ -12,12 +12,13 @@ Rails.application.routes.draw do
   patch '/world_bosses/:id', to: 'world_bosses#update'
   get '/world_bosses/:id/loots/new', to: 'world_boss_loots#new'
   post '/world_bosses/:id/loots', to: 'world_boss_loots#create'
-
+  delete '/world_bosses/:id/delete', to: 'world_bosses#destroy'
 
   get '/loots', to: 'loots#index'
   get '/loots/:id', to: 'loots#show'
   get '/loots/:id/edit', to: 'loots#edit'
   patch '/loots/:id', to: 'loots#update'
+  delete '/loots/:id/delete', to: 'loots#destroy'
 
   get '/regions', to: 'regions#index'
   get '/regions/:id', to: 'regions#show'

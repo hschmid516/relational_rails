@@ -6,7 +6,8 @@
 <% @loots.each do |loot| %>
   <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
   <p><%= button_to "Edit #{loot.name}", "/loots/#{loot.id}/edit", method: :get %></p>
-
+  <p><%= button_to "Delete #{loot.name}", "/loots/#{loot.id}/delete", method: :delete %></p>
+  
   <ul>
     <li> ID: <%= loot.id %> </li>
     <li> Boss ID: <%= loot.world_boss.id %> </li>

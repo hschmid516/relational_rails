@@ -17,7 +17,10 @@ class LootsController < ApplicationController
     redirect_to "/loots/#{loot.id}"
   end
 
-
+  def destroy
+  @loot = Loot.destroy(params[:id])
+  redirect_to '/loots'
+  end
 
 private
   def loot_params

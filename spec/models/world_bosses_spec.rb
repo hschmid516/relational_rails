@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe WorldBoss, type: :model do
   it {should have_many :loots}
+
   before(:each) do
     @mortanis = WorldBoss.create!(name: "Mortanis", max_health:18_466_000, is_current_boss: false, zone: "Maldraxxus")
     @muckformed = WorldBoss.create!(name: "Muckformed", max_health:19_000_000, is_current_boss: false, zone: "Revendreth")

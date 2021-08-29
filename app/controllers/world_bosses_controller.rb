@@ -24,6 +24,12 @@ class WorldBossesController < ApplicationController
     world_boss.update(boss_params)
     redirect_to "/world_bosses/#{world_boss.id}"
   end
+
+  def destroy
+  @world_boss = WorldBoss.destroy(params[:id])
+  redirect_to '/world_bosses'
+  end
+
 private
   def boss_params
     params.permit(:name, :max_health, :zone, :is_current_boss)

@@ -5,6 +5,7 @@
 <% @world_bosses.each do |boss| %>
   <h3><a href="/world_bosses/<%= boss.id %>"><%= boss.name %></a> Created at: <%= boss.created_at %></h3>
   <p><%= boss.name %> <%= button_to "Edit #{boss.name}", "/world_bosses/#{boss.id}/edit", method: :get %></p>
+  <p><%= button_to "Delete #{boss.name}", "/world_bosses/#{boss.id}/delete", method: :delete %></p>
 <% end %>
 
 <%= form_with url: '/world_bosses/new', method: :get, local: true do |form| %>

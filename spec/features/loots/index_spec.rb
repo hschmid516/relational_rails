@@ -65,4 +65,12 @@ RSpec.describe "Loots has an index page", type: :feature do
     click_button("Edit Memory of a Frenzied Monstrosity")
     expect(current_path).to eq("/loots/#{@mu_memory.id}/edit")
   end
+
+  it 'deletes the loot from the index page' do
+    visit "/loots"
+
+    click_button 'Delete Memory of a Frenzied Monstrosity'
+    expect(current_path).to eq("/loots")
+    expect(page).to_not have_content(@mu_memory.name)
+  end
 end
