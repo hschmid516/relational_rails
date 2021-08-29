@@ -1,6 +1,6 @@
 class LootsController < ApplicationController
   def index
-    @loots = Loot.all
+    @loots = Loot.show_true
   end
 
   def show
@@ -16,6 +16,8 @@ class LootsController < ApplicationController
     loot.update(loot_params)
     redirect_to "/loots/#{loot.id}"
   end
+
+
 
 private
   def loot_params

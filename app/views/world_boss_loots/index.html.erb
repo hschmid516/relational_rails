@@ -3,6 +3,8 @@
 
 <h1><%= "#{@world_boss.name} Loot Table" %></h1>
 
+<%= link_to "Sort Loot", "/world_bosses/#{@world_boss.id}/loots?sort=true" %>
+
 <% @loots.each do |loot| %>
   <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
   <ul>

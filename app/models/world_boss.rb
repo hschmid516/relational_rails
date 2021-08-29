@@ -8,4 +8,12 @@ class WorldBoss < ApplicationRecord
   def loot_count
     loots.count
   end
+
+  def sort_loots(sort = false)
+    if sort
+      loots.order(:name)
+    else
+      loots
+    end
+  end
 end

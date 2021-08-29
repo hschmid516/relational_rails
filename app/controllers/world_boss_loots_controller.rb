@@ -2,13 +2,13 @@ class WorldBossLootsController < ApplicationController
 
   def index
     @world_boss = WorldBoss.find(params[:id])
-    @loots = @world_boss.loots
+    @loots = @world_boss.sort_loots(params[:sort])
   end
 
   def new
     @world_boss = WorldBoss.find(params[:id])
-
   end
+
   def create
     @world_boss = WorldBoss.find(params[:id])
     @world_boss.loots.create(loots_params)
