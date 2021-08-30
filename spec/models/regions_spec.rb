@@ -13,8 +13,8 @@ describe Region, type: :model do
 
   end
 
-  it 'has regions ordered by name' do
-    expect(Region.ordered_regions('alphabetical')).to eq([@akkala, @great_plateau])
+  it 'has regions ordered by created at' do
+    expect(Region.ordered_regions(nil)).to eq([@akkala, @great_plateau])
   end
 
   it "counts the number of locations for a region" do

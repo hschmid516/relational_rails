@@ -67,6 +67,6 @@ RSpec.describe "regions index page", type: :feature do
     expect(current_path).to eq("/regions")
     expect(@great_plateau.name).to appear_before(@akkala.name)
     expect(page).to have_content("Number of Locations: #{@great_plateau.location_count}")
-    expect(page).to have_content("Number of Locations: #{@great_plateau.location_count}")
+    expect(page).to have_content("Number of Locations: #{@akkala.location_count}")
   end
 end
