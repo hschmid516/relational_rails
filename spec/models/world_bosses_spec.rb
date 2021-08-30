@@ -28,4 +28,9 @@ describe WorldBoss, type: :model do
   it 'filters armor by amount' do
     expect(@mortanis.min_armor(26)).to eq([@cloth_belt])
   end
+
+  it 'can sort the loot by name' do
+    expect(@mortanis.sort_loots(:sort)).to eq([@ring, @m_memory, @cloth_belt])
+    expect(@mortanis.sort_loots).to eq([@ring, @cloth_belt, @m_memory])
+  end
 end
