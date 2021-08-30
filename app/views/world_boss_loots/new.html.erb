@@ -1,0 +1,12 @@
+<h1> Add Some Loot</h1>
+<%= form_with url: "/world_bosses/#{@world_boss.id}/loots", method: :post, local: true do |form| %>
+  <p><%= form.label :name %><br>
+  <%= form.text_field :name %>
+  <p><%= form.label :armor %><br>
+  <%= form.number_field :armor %>
+  <p> <%= form.label :memory %><br>
+  <%= form.check_box :memory %>
+
+  <%= form.submit "Create Loot" %>
+
+<% end %>
