@@ -1,6 +1,6 @@
 class RegionsController < ApplicationController
   def index
-    @regions = Region.ordered_regions
+    @regions = Region
   end
 
   def show
@@ -11,7 +11,7 @@ class RegionsController < ApplicationController
   end
 
   def create
-    region = Region.create!(region_params)
+    Region.create!(region_params)
     redirect_to "/regions"
   end
 
@@ -26,7 +26,7 @@ class RegionsController < ApplicationController
   end
 
   def destroy
-    region = Region.destroy(params[:id])
+    Region.destroy(params[:id])
     redirect_to '/regions'
   end
 
