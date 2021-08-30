@@ -18,37 +18,61 @@
    src: url('/assets/zelda.otf');
 }
 .button {
-  background-color: rgb(40,53,76);
+  background-color: rgba(82,111,136,0.7);
   border: none;
   color: #fff;
   padding: 10px 22px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
+  font-size: 12px;
+  border-radius: 50px;
   transition-duration: 0.4s;
   box-shadow:     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-  font-family: "gautami";
+  font-family: "Trebuchet MS";
   font-weight: bold;
   text-shadow:1px 1px 10px #000000, 1px 1px 10px #ccc;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.button_location {
+  background-color: rgba(133,91,140,0.7);
+  border: none;
+  color: #fff;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 50px;
+  transition-duration: 0.4s;
+  box-shadow:     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+  font-family: "Trebuchet MS";
+  font-weight: bold;
+  text-shadow:1px 1px 10px #000000, 1px 1px 10px #ccc;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .button_new {
-  background-color: rgb(200,112,44);
+  background-color: rgba(82,111,136,0.7);
   border: none;
   color: #fff;
-  padding: 10px 22px;
+  padding: 15px 27px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 25px;
-  border-radius: 12px;
+  font-size: 20px;
+  border-radius: 50px;
   transition-duration: 0.4s;
-  box-shadow:     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
-    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-  font-family: "gautami";
+  box-shadow: 7px 7px 25px rgba(0,0,0, .4),
+            -7px -7px 35px rgba(255, 255, 255, .4),
+            inset 0px 0px 4px rgba(255, 255, 255, .3),
+            inset 7px 7px 15px rgba(198, 206, 237, .3);
+  font-family: "Trebuchet MS";
   font-weight: bold;
   text-shadow:1px 1px 10px #000000, 1px 1px 10px #ccc;
 }
@@ -65,32 +89,147 @@
   font-size: 16px;
   border-radius: 50px;
   transition-duration: 0.4s;
+  font-weight: bold;
   box-shadow:     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
 
 }
 
+.button_update {
+  background-color: rgba(47,85,94,0.7);
+  border: none;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(11,25,31);
+  display: inline-block;
+  font-family: "Trebuchet MS";
+  font-size: 16px;
+  border-radius: 50px;
+  transition-duration: 0.7s;
+  font-weight: bold;
+  box-shadow:     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+
+}
+
+.form_update {
+  background-color: rgb(47,85,94);
+  border: none;
+  color: black;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  font-family: "Trebuchet MS";
+  font-size: 14px;
+  border-radius: 50px;
+  transition-duration: 0.4s;
+  font-weight: bold;
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+  inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+
+
+}
+
+.button_update:hover {
+ background-color: rgba(47,85,94,0.7);
+ box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+ inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+}
+
+.button_location:hover {
+ background-color: rgba(133,91,140,0.7);
+ box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+ inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+}
+
+.button_show:hover {
+ background-color: rgb(22,175,198);
+ box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+ inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+}
+
  .button:hover {
-  background-color: #4CAF50;
+  background-color: rgba(82,111,136,0.7);
+  color: white;
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+  inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+}
+
+ .button_new:hover {
+  background-color: #008CBA;
   color: white;
 }
 
-#region {
+.region {
+  font-family: "Trebuchet MS";
+  text-align: center;
+  width : 100%;
+  margin: auto;
+  background-attachment: fixed;
   background-image: url(zelda_index.jpeg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
-  font-family: "gautami";
+}
+
+.new_update {
+  font-family: "Trebuchet MS";
   text-align: center;
   width : 100%;
   margin: auto;
+  background-image: url(new_update.jpeg);
+  -webkit-background-size: cover;
+      -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
 }
 
-#region_margin {
-  width : 35%;
-  height: 100vh;
+.location {
+  font-family: "Trebuchet MS";
+  text-align: center;
+  width : 100%;
+  margin: auto;
+  background-attachment: fixed;
+  background-image: url(location_index.jpeg);
+  -webkit-background-size: cover;
+      -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+.region_margin {
+  width : 32%;
+  height: 100%;
+  background-color: rgba(82,111,136,0.7);
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+.location_margin {
+  width : 32%;
+  height: 100%;
+  background-color: rgba(133,91,140,0.7);
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+.new_update_margin {
+  width : 23%;
+  height: 53vh;
+  background-color: rgba(47,85,94,0.7);
+  padding-top: 20px;
+  padding-bottom: 25px;
+  margin-left: 120px;
+  margin-top: 30px;
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25), inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
 }
 
 #show {
@@ -103,14 +242,14 @@
   text-align: center;
 }
 
-#show_background {
+#show_sidebar {
   background-color: rgb(22,175,198);
   width : 25%;
   height: 100vh;
 }
 
 #zelda {
-  font-size: 45px;
+  font-size: 38px;
   font-family: "zelda";
 }
 
@@ -129,6 +268,7 @@ h1 {
 a {
   text-shadow:1px 1px 10px #008CBA, 1px 1px 1px #ccc;
   color: #fff;
+  font-family: "Trebuchet MS";
 }
 
 p {
@@ -142,4 +282,12 @@ ul {
 
 body {
   font-family: "Trebuchet MS";
+}
+
+.container {
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25), inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+  padding-top: 2px;
+  padding-bottom: 10px;
+  margin: 20px 40px;
+  border-radius: 50px;
 }

@@ -1,11 +1,15 @@
-<h1>Update <%= @location.name %></h1>
+<body class="new_update">
+  <div class="new_update_margin">
+    <h1>Update <%= @location.name %></h1>
 
-<%= form_with url: "/locations/#{@location.id}", method: :patch, local: true do |form| %>
-<%= form.label :name %><br>
-<%= form.text_field :name %><br><br>
-<%= form.label :is_cold %><br>
-<%= form.check_box :is_cold %><br><br>
-<%= form.label :korok_seeds %><br>
-<%= form.number_field :korok_seeds %><br><br>
-  <%= form.submit "Update Location", class: 'button' %>
-<% end %>
+    <b><%= form_with url: "/locations/#{@location.id}", method: :patch, local: true do |form| %>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, value: "#{@location.name}", class: 'form_update' %><br><br><br>
+    <%= form.label :korok_seeds %><br>
+    <%= form.number_field :korok_seeds, value: "#{@location.korok_seeds}", class: 'form_update' %><br><br><br>
+    <%= form.label :is_cold %><br>
+    <%= form.check_box :is_cold, {checked: @location.is_cold}, class: 'form_update' %><br><br><br>
+      <%= form.submit "Update Location", class: 'button_update' %>
+    <% end %></b>
+  </div>
+</body>
