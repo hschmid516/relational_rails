@@ -14,9 +14,18 @@
  *= require_self
  */
  @font-face {
+   font-family: 'wow';
+   src: url('LifeCraft_Font.ttf') format('truetype');
+
+
+ }
+ @font-face {
    font-family: 'zelda';
    src: url(/assets/fonts/zelda.otf) format("truetype");
+
+
 }
+
 .button {
   background-color: rgb(40,53,76);
   border: none;
@@ -85,4 +94,15 @@ h1 {
 a {
   text-shadow:1px 1px 10px #008CBA, 1px 1px 1px #ccc;
   color: #fff;
+}
+
+#world_bosses {
+  background-image: url(wow_index_page.jpeg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  font-family: wow;
+  text-align: center;
 }

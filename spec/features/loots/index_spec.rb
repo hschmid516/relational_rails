@@ -26,7 +26,7 @@ RSpec.describe "Loots has an index page", type: :feature do
     expect(page).to have_content("Boss ID: #{@feet.world_boss_id}")
     expect(page).to have_content("Created at: #{@m_memory.created_at}")
     expect(page).to have_content("ID: #{@cloth_belt.id}")
-    expect(page).to have_content("World of Warcraft(Shadowlands) Loot Table")
+    expect(page).to have_content("World of Warcraft Shadowlands Loot Table")
   end
 
   it 'has a link to each Loot with true booleans' do
@@ -43,7 +43,7 @@ RSpec.describe "Loots has an index page", type: :feature do
     expect(current_path).to eq("/loots/#{@cloth_belt.id}")
 
   end
-  it 'has a link for all bosses and all loot' do
+  it 'has a link for all pages' do
 
     expect(page).to have_link("All World Bosses")
     click_link("All World Bosses")
@@ -52,6 +52,9 @@ RSpec.describe "Loots has an index page", type: :feature do
     expect(page).to have_link("All Loot")
     click_link("All Loot")
     expect(current_path).to eq("/loots")
+
+    click_link("Home")
+    expect(current_path).to eq("/")
 
   end
 

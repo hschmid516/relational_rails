@@ -1,13 +1,14 @@
+<a href="/"> Home</a>
 <a href="/world_bosses"> All World Bosses</a>
 <a href="/loots"> All Loot</a>
 
-<h1>World of Warcraft(Shadowlands) Loot Table</h1>
+<h1>World of Warcraft Shadowlands Loot Table</h1>
 
 <% @loots.each do |loot| %>
   <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
-  <p><%= button_to "Edit #{loot.name}", "/loots/#{loot.id}/edit", method: :get %></p>
-  <p><%= button_to "Delete #{loot.name}", "/loots/#{loot.id}/delete", method: :delete %></p>
-  
+  <p><%= button_to "Edit #{loot.name}", "/loots/#{loot.id}/edit", method: :get, class: 'button' %></p>
+  <p><%= button_to "Delete #{loot.name}", "/loots/#{loot.id}/delete", method: :delete, class: 'button'%></p>
+
   <ul>
     <li> ID: <%= loot.id %> </li>
     <li> Boss ID: <%= loot.world_boss.id %> </li>

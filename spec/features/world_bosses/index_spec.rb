@@ -13,7 +13,7 @@ RSpec.describe "Bosses index page", type: :feature do
     expect(current_path).to eq("/world_bosses")
     expect(page).to have_content(@mortanis.name)
     expect(page).to have_content(@muckformed.name)
-    expect(page).to have_content("World of Warcraft(Shadowlands) World Bosses")
+    expect(page).to have_content("World of Warcraft Shadowlands World Bosses")
   end
 
   it 'has a link to each world boss' do
@@ -44,11 +44,14 @@ RSpec.describe "Bosses index page", type: :feature do
     expect(page).to have_content("Created at: #{@mortanis.created_at}")
   end
 
-  it 'has a link for all bosses and all loot' do
+  it 'has a link for all pages' do
     expect(page).to have_link("All Loot")
 
     click_link("All Loot")
     expect(current_path).to eq("/loots")
+
+    click_link("Home")
+    expect(current_path).to eq("/")
 
   end
 
