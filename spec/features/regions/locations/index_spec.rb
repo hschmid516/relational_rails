@@ -49,7 +49,6 @@ RSpec.describe "locations index page", type: :feature do
     fill_in('Korok seeds', with: 6)
     click_button("Only return records with more than 0 Korok Seeds")
 
-
     expect(current_path).to eq("/regions/#{@akkala.id}/locations")
     expect(page).to have_content("Tarrey Town")
     expect(page).to_not have_content("Lomei Labrynth")

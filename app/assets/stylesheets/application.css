@@ -17,6 +17,7 @@
    font-family: "zelda";
    src: url('/assets/zelda.otf');
 }
+
 .button {
   background-color: rgba(82,111,136,0.7);
   border: none;
@@ -290,4 +291,15 @@ body {
   padding-bottom: 10px;
   margin: 20px 40px;
   border-radius: 50px;
+}
+
+#world_bosses {
+  background-image: url(wow_index_page.jpeg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  font-family: wow;
+  text-align: center;
 }
