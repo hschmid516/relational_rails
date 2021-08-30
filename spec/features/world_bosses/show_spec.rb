@@ -26,7 +26,7 @@ RSpec.describe "Bosses show page", type: :feature do
     expect(page).to have_content("Pieces of loot: 3")
   end
 
-  it 'has a link for all bosses and all loot' do
+  it 'has a link for all pages' do
 
     expect(page).to have_link("All World Bosses")
     click_link("All World Bosses")
@@ -35,6 +35,9 @@ RSpec.describe "Bosses show page", type: :feature do
     expect(page).to have_link("All Loot")
     click_link("All Loot")
     expect(current_path).to eq("/loots")
+
+    click_link("Home")
+    expect(current_path).to eq("/")
 
   end
 

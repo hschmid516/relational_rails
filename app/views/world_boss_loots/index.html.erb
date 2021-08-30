@@ -1,3 +1,4 @@
+<a href="/"> Home</a>
 <a href="/world_bosses"> All World Bosses</a>
 <a href="/loots"> All Loot</a>
 
@@ -16,12 +17,12 @@
   </ul>
 <% end %>
 
-<%= button_to "New Loot", "/world_bosses/#{@world_boss.id}/loots/new", method: :get %>
+<%= button_to "New Loot", "/world_bosses/#{@world_boss.id}/loots/new", method: :get, class: 'button' %>
 <%= link_to "Sort Loot Alphabetically", "/world_bosses/#{@world_boss.id}/loots?sort=true" %>
 
 <%= form_with url: "/world_bosses/#{@world_boss.id}/loots", method: :get, local: true do |form| %>
 <% params[:armor] ||= 0 %>
 <%= form.label :armor %>
 <%= form.number_field :armor %>
-<%= form.submit "Filter by armor" %>
+<%= form.submit "Filter by armor", class: 'button' %>
 <% end %>

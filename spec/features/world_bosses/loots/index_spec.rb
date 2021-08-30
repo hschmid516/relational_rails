@@ -21,7 +21,7 @@ RSpec.describe "Loots shows on individual boss pages", type: :feature do
     expect(page).to_not have_content(@mu_memory.name)
   end
 
-  it 'has a link for all bosses and all loot' do
+  it 'has a link for all pages' do
 
     expect(page).to have_link("All World Bosses")
 
@@ -31,6 +31,9 @@ RSpec.describe "Loots shows on individual boss pages", type: :feature do
     expect(page).to have_link("All Loot")
     click_link("All Loot")
     expect(current_path).to eq("/loots")
+
+    click_link("Home")
+    expect(current_path).to eq("/")
   end
 
   it 'can sort the loot by name' do
