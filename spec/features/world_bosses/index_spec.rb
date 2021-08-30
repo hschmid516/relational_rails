@@ -73,13 +73,6 @@ RSpec.describe "Bosses index page", type: :feature do
     expect(page).to_not have_content("#{@mortanis.name}")
   end
 
-#   As a visitor
-# When I visit the Parents Index Page
-# Then I see a link to sort parents by the number of `child_table_name` they have
-# When I click on the link
-# I'm taken back to the Parent Index Page where I see all of the parents in order of their count of `child_table_name`
-# (highest to lowest) And, I see the number of children next to each parent name
-
   it 'sorts parents by the amount of loot they have' do
     click_button("Sort by loot amount")
     expect(current_path).to eq("/world_bosses")
