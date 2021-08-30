@@ -17,7 +17,7 @@ describe WorldBoss, type: :model do
   it 'shows bosses ordered by most recently created' do
     expected = [@oranomonos, @muckformed, @mortanis]
 
-    expect(WorldBoss.ordered_bosses).to eq(expected)
+    expect(WorldBoss.ordered_bosses(nil)).to eq(expected)
   end
 
   it 'counts the amount of loot per boss' do
@@ -32,5 +32,9 @@ describe WorldBoss, type: :model do
   it 'can sort the loot by name' do
     expect(@mortanis.sort_loots(:sort)).to eq([@ring, @m_memory, @cloth_belt])
     expect(@mortanis.sort_loots).to eq([@ring, @cloth_belt, @m_memory])
+  end
+
+  it 'sorts bosses by the amount of loot they have' do
+    expect(WorldBoss.ordered_bosses('loots')).to eq([@mortanis, @muckformed, @oranomonos])
   end
 end
