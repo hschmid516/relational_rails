@@ -1,6 +1,6 @@
 class RegionsController < ApplicationController
   def index
-    @regions = Region
+    @regions = Region.ordered_regions(params[:sort])
   end
 
   def show
