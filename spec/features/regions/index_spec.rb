@@ -49,4 +49,11 @@ RSpec.describe "regions index page", type: :feature do
 
     expect(current_path).to eq("/regions/#{@great_plateau.id}/edit")
   end
+
+  it 'can delete regions from index page' do
+    click_button("Delete #{@great_plateau.name}")
+
+    expect(current_path).to eq("/regions")
+    expect(page).to_not have_content("#{@great_plateau.name}")
+  end
 end

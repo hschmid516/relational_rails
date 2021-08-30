@@ -1,12 +1,20 @@
-<body id="region">
-  <a href="/locations">All Locations</a>
-  <h1>Legend of Zelda: Breath of the Wild - Regions</h1>
+<body class="region">
+  <div class="region_margin">
 
-  <% @regions.each do |region| %>
-    <h3><a href="/regions/<%= region.id %>"><%= region.name %></a></h3>
-    <p><b>Created at: <%= region.created_at %></b></p>
-    <b><%= button_to "Edit #{region.name}", "/regions/#{region.id}/edit", method: :get, class: 'button' %></b><br><br>
-  <% end %><br><br>
+    <a href="/locations">All Locations</a>
+    <h1 id="zelda">Legend of Zelda: <br>Breath of the Wild - Regions</h1>
 
-  <%= button_to "New Region", "/regions/new", method: :get, class: 'button' %>
+    <% @regions.each do |region| %>
+    <div class="container">
+      <h2><a href="/regions/<%= region.id %>"><%= region.name %></a></h2>
+      <p><b>Created at: <%= region.created_at %></b></p>
+      <%= button_to "Edit #{region.name}", "/regions/#{region.id}/edit", method: :get, class: 'button', form: {style: 'display:inline-block;'} %>
+      <%= button_to "Delete #{region.name}", "/regions/#{region.id}", method: :delete, class: 'button', form: {style: 'display:inline-block;'} %><br><br>
+    </div>
+    <% end %>
+    <br>
+
+    <%= button_to "New Region", "/regions/new", method: :get, class: 'button_new' %>
+    <br>
+  </div>
 </body>

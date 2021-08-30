@@ -1,11 +1,15 @@
-<h1>Update <%= @region.name %></h1>
+<body class="new_update">
+  <div class="new_update_margin">
+    <h1>Update <%= @region.name %></h1>
 
-<%= form_with url: "/regions/#{@region.id}", method: :patch, local: true do |form| %>
-  <%= form.label :name %><br>
-  <%= form.text_field :name %><br><br>
-  <%= form.label :has_divine_beast %><br>
-  <%= form.check_box :has_divine_beast %><br><br>
-  <%= form.label :number_of_shrines %><br>
-  <%= form.number_field :shrines %><br><br>
-  <%= form.submit "Update Region", class: 'button' %>
-<% end %>
+    <%= form_with url: "/regions/#{@region.id}", method: :patch, local: true do |form| %>
+      <b><%= form.label :name %><br>
+      <%= form.text_field :name, value: @region.name, class: 'form_update'%><br><br>
+      <%= form.label :number_of_shrines %><br>
+      <%= form.number_field :shrines, class: 'form_update' %><br><br><br>
+      <%= form.label :has_divine_beast %>
+      <%= form.check_box :has_divine_beast, class: 'form_update' %><br><br><br>
+      <%= form.submit "Update Region", class: 'button_update' %></b>
+    <% end %>
+  </div>
+</body>
