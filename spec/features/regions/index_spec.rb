@@ -4,6 +4,10 @@ RSpec.describe "regions index page", type: :feature do
   before :each do
     @great_plateau = Region.create!(name: "The Great Plateau", has_divine_beast: false, shrines: 4)
     @akkala = Region.create!(name: "Akkala", has_divine_beast: false, shrines: 8)
+    @akkala.locations.create!(name: "Tarrey Town", is_cold: true, korok_seeds: 13)
+    @great_plateau.locations.create!(name: "Mount Hylia", is_cold: true, korok_seeds: 11)
+    @great_plateau.locations.create!(name: "Temple of Time", is_cold: true, korok_seeds: 8)
+
     visit "/regions"
   end
 
@@ -55,5 +59,14 @@ RSpec.describe "regions index page", type: :feature do
 
     expect(current_path).to eq("/regions")
     expect(page).to_not have_content("#{@great_plateau.name}")
+  end
+
+  it 'sorts regions by number of locations' do
+    click_button("Sort by Number of Locations")
+
+    expect(current_path).to eq("/regions")
+    expect(@great_plateau.name).to appear_before(@akkala.name)
+    expect(page).to have_content("Number of Locations: #{@great_plateau.location_count}")
+    expect(page).to have_content("Number of Locations: #{@great_plateau.location_count}")
   end
 end
