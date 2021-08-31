@@ -1,6 +1,6 @@
 class LootsController < ApplicationController
   def index
-    @loots = Loot.show_true
+    @loots = Loot.exact_search(params[:search_exact]).partial_search(params[:search_partial]).show_true
   end
 
   def show

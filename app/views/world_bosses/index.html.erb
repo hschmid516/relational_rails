@@ -1,16 +1,27 @@
 <body id="world_bosses">
 <a href="/"> Home</a>
+<a href="/world_bosses"> All World Bosses</a>
 <a href="/loots"> All Loot</a>
 <h1>World of Warcraft Shadowlands World Bosses</h1>
 
+<%= form_with url: "/world_bosses", method: :get, local: true do |form| %>
+  <%= form.text_field :search_exact %>
+  <%= form.submit "Search by exact name", class: 'button' %>
+<% end %><br>
+
+<%= form_with url: "/world_bosses", method: :get, local: true do |form| %>
+  <%= form.text_field :search_partial %>
+  <%= form.submit "Search by partial name", class: 'button' %>
+<% end %>
 
 <% @world_bosses.each do |boss| %>
-  <h3><a href="/world_bosses/<%= boss.id %>"><%= boss.name %></a> Created at: <%= boss.created_at %></h3>
+  <h2><a href="/world_bosses/<%= boss.id %>"><%= boss.name %></a></h2>
+  <p>Created at: <%= boss.created_at %></p>
+  <p>Pieces of Loot: <%= boss.loot_count %></p>
   <p><%= button_to "Edit #{boss.name}", "/world_bosses/#{boss.id}/edit", method: :get, class: 'button' %></p>
   <p><%= button_to "Delete #{boss.name}", "/world_bosses/#{boss.id}/delete", method: :delete, class: 'button' %></p>
 <% end %>
 
-<%= form_with url: '/world_bosses/new', method: :get, local: true do |form| %>
-  <%= form.submit "New Boss", class: 'button'%>
-<% end %>
+<%= button_to "New Boss", "/world_bosses/new", method: :get, class: 'button_new' %> <br>
+<%= button_to "Sort by loot amount", "/world_bosses", params: {sort: :loots}, method: :get, class: 'button_new' %>
 </body>

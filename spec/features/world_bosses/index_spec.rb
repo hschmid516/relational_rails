@@ -5,6 +5,13 @@ RSpec.describe "Bosses index page", type: :feature do
     @mortanis = WorldBoss.create!(name: "Mortanis", max_health:18_466_000, is_current_boss: false, zone: "Maldraxxus")
     @muckformed = WorldBoss.create!(name: "Muckformed", max_health:19_000_000, is_current_boss: false, zone: "Revendreth")
     @oranomonos = WorldBoss.create!(name: "Oranomonos the Everbranching", max_health:12_000_000, is_current_boss: true, zone: "Ardenweald")
+
+    @ring = @mortanis.loots.create!(name: "Band of the Risen Bonelord", memory: false, armor: 0)
+    @cloth_belt = @mortanis.loots.create!(name: "Spine Crawler Waistcord", memory: false, armor: 27)
+    @m_memory = @mortanis.loots.create!(name: "Memory of Fujieda", memory: true, armor: 0)
+    @mu_memory = @muckformed.loots.create!(name: "Memory of a Frenzied Monstrosity", memory: true, armor: 0)
+
+
     visit "/world_bosses"
   end
 
@@ -64,5 +71,31 @@ RSpec.describe "Bosses index page", type: :feature do
     click_button("Delete #{@mortanis.name}")
     expect(current_path).to eq("/world_bosses")
     expect(page).to_not have_content("#{@mortanis.name}")
+  end
+
+  it 'sorts parents by the amount of loot they have' do
+    click_button("Sort by loot amount")
+    expect(current_path).to eq("/world_bosses")
+    expect(@mortanis.name).to appear_before(@muckformed.name)
+    expect(@muckformed.name).to appear_before(@oranomonos.name)
+    expect(page).to have_content("Pieces of Loot: #{@mortanis.loot_count}")
+    expect(page).to have_content("Pieces of Loot: #{@muckformed.loot_count}")
+    expect(page).to have_content("Pieces of Loot: #{@oranomonos.loot_count}")
+  end
+
+  it 'filters search by exact name' do
+    fill_in "search_exact", with: "#{@mortanis.name}"
+    click_button("Search by exact name")
+    expect(current_path).to eq("/world_bosses")
+    expect(page).to have_content("#{@mortanis.name}")
+    expect(page).to_not have_content("#{@muckformed.name}")
+  end
+
+  it 'filters search by partial name' do
+    fill_in "search_partial", with: "Mor"
+    click_button("Search by partial name")
+    expect(current_path).to eq("/world_bosses")
+    expect(page).to have_content("#{@mortanis.name}")
+    expect(page).to_not have_content("#{@muckformed.name}")
   end
 end
