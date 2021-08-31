@@ -9,7 +9,6 @@
     <h1 id='zelda'><%= @region.name %> - Locations</h1>
 
     <%= form_with url: "/regions/#{@region.id}/locations", method: :get, local: true do |form| %>
-    <% params[:korok_seeds] ||= 0 %>
     <%= form.number_field :korok_seeds, class: 'koroks' %>
     <%= form.submit "Filter by Korok Seeds", class: 'button_location'  %>
     <% end %><br>
