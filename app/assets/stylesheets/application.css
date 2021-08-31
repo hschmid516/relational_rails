@@ -408,14 +408,3 @@ li a.nav:hover:not(.active) {
 .active {
   background-color: #04AA6D;
 }
-
-/* #world_bosses {
-  background-image: url(wow_index_page.jpeg);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-  font-family: wow;
-  text-align: center;
-} */
