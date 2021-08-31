@@ -1,17 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "locations index page", type: :feature do
+RSpec.describe 'locations index page', type: :feature do
   before :each do
-    @great_plateau = Region.create!(name: "The Great Plateau", has_divine_beast: false, shrines: 4)
-    @akkala = Region.create!(name: "Akkala", has_divine_beast: false, shrines: 8)
-    @tarrey = @akkala.locations.create!(name: "Tarrey Town", is_cold: true, korok_seeds: 13)
-    @hylia = @great_plateau.locations.create!(name: "Mount Hylia", is_cold: true, korok_seeds: 11)
-    @shrine = @great_plateau.locations.create!(name: "Shrine of Resurrection", is_cold: false, korok_seeds: 10)
-    visit "/locations"
+    @great_plateau = Region.create!(name: 'The Great Plateau', has_divine_beast: false, shrines: 4)
+    @akkala = Region.create!(name: 'Akkala', has_divine_beast: false, shrines: 8)
+    @tarrey = @akkala.locations.create!(name: 'Tarrey Town', is_cold: true, korok_seeds: 13)
+    @hylia = @great_plateau.locations.create!(name: 'Mount Hylia', is_cold: true, korok_seeds: 11)
+    @shrine = @great_plateau.locations.create!(name: 'Shrine of Resurrection', is_cold: false, korok_seeds: 10)
+    visit '/locations'
   end
 
   it 'can see all locations recorded in the system' do
-
     expect(page).to have_content(@tarrey.name)
     expect(page).to have_content(@hylia.name)
     expect(page).to have_content("Is Cold: #{@tarrey.is_cold}")
@@ -26,7 +25,7 @@ RSpec.describe "locations index page", type: :feature do
     expect(page).to have_content("Updated At: #{@tarrey.updated_at}")
     expect(page).to have_content("ID: #{@hylia.id}")
     expect(page).to have_content("ID: #{@tarrey.id}")
-    expect(page).to have_content("Legend of Zelda: Breath of the Wild - Locations")
+    expect(page).to have_content('Legend of Zelda: Breath of the Wild - Locations')
   end
 
   it 'has a link to each location' do
@@ -37,7 +36,7 @@ RSpec.describe "locations index page", type: :feature do
 
     expect(current_path).to eq("/locations/#{@tarrey.id}")
 
-    visit "/locations"
+    visit '/locations'
 
     click_link @hylia.name
 
@@ -45,11 +44,11 @@ RSpec.describe "locations index page", type: :feature do
   end
 
   it 'has links to all regions and locations' do
-    expect(page).to have_link("All Regions")
+    expect(page).to have_link('All Regions')
 
-    click_link("All Regions")
+    click_link('All Regions')
 
-    expect(current_path).to eq("/regions")
+    expect(current_path).to eq('/regions')
   end
 
   it 'only shows locations that are cold' do
@@ -66,24 +65,23 @@ RSpec.describe "locations index page", type: :feature do
   it 'can delete locations from index page' do
     click_button("Delete #{@tarrey.name}")
 
-    expect(current_path).to eq("/locations")
-    expect(page).to_not have_content("#{@tarrey.name}")
+    expect(current_path).to eq('/locations')
+    expect(page).to_not have_content(@tarrey.name.to_s)
   end
 
   it 'searches for locations by exact name' do
-
-    fill_in('search', with: "#{@tarrey.name}")
+    fill_in('search', with: @tarrey.name.to_s)
     click_button('Search by Exact Name')
 
-    expect(page).to have_content("#{@tarrey.name}")
-    expect(page).to_not have_content("#{@hylia.name}")
+    expect(page).to have_content(@tarrey.name.to_s)
+    expect(page).to_not have_content(@hylia.name.to_s)
   end
 
   it 'searches for locations by partial name' do
-    fill_in('search_partial', with: "tarr")
+    fill_in('search_partial', with: 'tarr')
     click_button('Search by Partial Name')
 
-    expect(page).to have_content("#{@tarrey.name}")
-    expect(page).to_not have_content("#{@hylia.name}")
+    expect(page).to have_content(@tarrey.name.to_s)
+    expect(page).to_not have_content(@hylia.name.to_s)
   end
 end

@@ -10,7 +10,7 @@ class Region < ApplicationRecord
   end
 
   def min_koroks(koroks)
-    koroks = 0 if koroks == nil
+    koroks = 0 if koroks.nil?
     locations.where("korok_seeds > #{koroks}")
   end
 
@@ -21,8 +21,4 @@ class Region < ApplicationRecord
       order(created_at: :desc)
     end
   end
-
-  scope :exact_search, ->(search) { where(name: search) if search != nil}
-
-  scope :partial_search, ->(search) { where("name ilike ?", "%#{search}%") if search != nil}
 end

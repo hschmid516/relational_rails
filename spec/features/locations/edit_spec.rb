@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Location Updates" do
-  it "links to an edit page" do
-    eldin = Region.create!(name: "Eldin", has_divine_beast: true, shrines: 9)
-    death = eldin.locations.create!(name: "Death Mountain", is_cold: false, korok_seeds: 32)
+RSpec.describe 'Location Updates' do
+  it 'links to an edit page' do
+    eldin = Region.create!(name: 'Eldin', has_divine_beast: true, shrines: 9)
+    death = eldin.locations.create!(name: 'Death Mountain', is_cold: false, korok_seeds: 32)
 
     visit "/locations/#{death.id}"
 
@@ -13,8 +13,8 @@ RSpec.describe "Location Updates" do
   end
 
   it 'can edit the location' do
-    eldin = Region.create!(name: "Eldine", has_divine_beast: true, shrines: 9)
-    death = eldin.locations.create!(name: "Darth Mountain", is_cold: false, korok_seeds: 32)
+    eldin = Region.create!(name: 'Eldine', has_divine_beast: true, shrines: 9)
+    death = eldin.locations.create!(name: 'Darth Mountain', is_cold: false, korok_seeds: 32)
 
     visit "/locations/#{death.id}"
 
@@ -25,6 +25,6 @@ RSpec.describe "Location Updates" do
     click_button 'Update Location'
 
     expect(current_path).to eq("/locations/#{death.id}")
-    expect(page).to have_content("Death Mountain")
+    expect(page).to have_content('Death Mountain')
   end
 end

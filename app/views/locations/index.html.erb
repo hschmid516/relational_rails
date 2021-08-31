@@ -22,14 +22,14 @@
       <% if location.is_cold == true %>
       <div class="container">
           <h2><a href="/locations/<%= location.id %>"><%= location.name %></a></h2>
-        <ul>
-          <li>ID: <%= location.id %></li>
-          <li>Region ID: <%= location.region_id %></li>
-          <li>Created At: <%= location.created_at %></li>
-          <li>Updated At: <%= location.updated_at %></li>
-          <li>Is Cold: <%= location.is_cold %></li>
-          <li>Number of Korok Seeds: <%= location.korok_seeds %></li>
-        </ul>
+
+          <p>ID: <%= location.id %></p>
+          <p>Region ID: <%= location.region_id %></p>
+          <p>Created At: <%= location.created_at %></p>
+          <p>Updated At: <%= location.updated_at %></p>
+          <p>Is Cold: <%= location.is_cold %></p>
+          <p>Number of Korok Seeds: <%= location.korok_seeds %></p>
+
         <%= button_to "Edit #{location.name}", "/locations/#{location.id}/edit", method: :get, class: 'button_location', form: {style: 'display:inline-block;'} %>
         <%= button_to "Delete #{location.name}", "/locations/#{location.id}", method: :delete, class: 'button_location', form: {style: 'display:inline-block;'} %><br><br>
       </div>

@@ -1,20 +1,22 @@
 <body id='show'>
-<div id="show_sidebar">
-  <ul class='nav'>
-    <li class='nav'><a class='nav' href="/">Home</a></li>
-    <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
-    <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
-  </ul>
-  
-    <h1 id=zelda_show><%= @region.name %></h1>
-    <p>Is there a Divine Beast?: <%= @region.has_divine_beast %></p>
-    <p>How many shrines? <%= @region.shrines %></p>
-    <p>Number of Locations: <%= @region.location_count %></p>
+  <div id="show_sidebar">
+    <ul class='nav'>
+      <li class='nav'><a class='nav' href="/">Home</a></li>
+      <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
+      <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
+    </ul>
 
-    <a href="/regions/<%= "#{@region.id}"%>/locations"><%= @region.name %> - Locations</a><br><br><br>
+      <h1 id=zelda_show><%= @region.name %></h1>
+      <a class='show_link' href="/regions/<%= "#{@region.id}"%>/locations"><%= @region.name %> - Locations</a><br><br>
+      <section id='show_p'>
+        Has Divine Beast: <%= @region.has_divine_beast %><br>
+        Number of shrines: <%= @region.shrines %><br>
+        Number of Locations: <%= @region.location_count %>
+      </section><br>
 
-    <%= button_to "Edit #{@region.name}", "/regions/#{@region.id}/edit", method: :get, class: 'button_show' %><br><br>
-    <%= button_to "Delete #{@region.name}", "/regions/#{@region.id}", method: :delete, class: 'button_show' %>
 
-</div>
+      <%= button_to "Edit #{@region.name}", "/regions/#{@region.id}/edit", method: :get, class: 'button_show' %><br><br>
+      <%= button_to "Delete #{@region.name}", "/regions/#{@region.id}", method: :delete, class: 'button_show' %>
+
+  </div>
 </body>

@@ -1,23 +1,22 @@
 <body id='show'>
-<div id="show_sidebar">
-  <ul class='nav'>
-    <li class='nav'><a class='nav' href="/">Home</a></li>
-    <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
-    <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
-  </ul>
-  
-<h1 id=zelda_show><%= @location.name %></h1>
+  <div id="show_sidebar">
+    <ul class='nav'>
+      <li class='nav'><a class='nav' href="/">Home</a></li>
+      <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
+      <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
+    </ul>
 
-<ul>
-  <li>ID: <%= @location.id %></li>
-  <li>Region ID: <%= @location.region_id %></li>
-  <li>Created At: <%= @location.created_at %></li>
-  <li>Updated At: <%= @location.updated_at %></li>
-  <li>Is Cold: <%= @location.is_cold %></li>
-  <li>Number of Korok Seeds: <%= @location.korok_seeds %></li>
-</ul><br>
+    <h1 id=zelda_show><%= @location.name %></h1>
 
-<%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get, class: 'button_show' %><br><br>
-<%= button_to "Delete #{@location.name}", "/locations/#{@location.id}", method: :delete, class: 'button_show' %>
-</div>
+    <section id='show_p'>ID: <%= @location.id %></section>
+    <section id='show_p'>Region ID: <%= @location.region_id %></section>
+    <section id='show_p'>Created At: <%= @location.created_at %></section>
+    <section id='show_p'>Updated At: <%= @location.updated_at %></section>
+    <section id='show_p'>Is Cold: <%= @location.is_cold %></section>
+    <section id='show_p'>Number of Korok Seeds: <%= @location.korok_seeds %></section><br>
+
+
+    <%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get, class: 'button_show' %><br><br>
+    <%= button_to "Delete #{@location.name}", "/locations/#{@location.id}", method: :delete, class: 'button_show' %>
+  </div>
 </body>
