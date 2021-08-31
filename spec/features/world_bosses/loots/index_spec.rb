@@ -17,7 +17,6 @@ RSpec.describe "Loots shows on individual boss pages", type: :feature do
 
     expect(page).to have_content(@ring.name)
     expect(page).to have_content("Armor: #{@ring.armor}")
-    expect(page).to have_content("Boss ID: #{@ring.world_boss_id}")
     expect(page).to_not have_content(@mu_memory.name)
   end
 
