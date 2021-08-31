@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   def index
-    @locations = Location.all
+    @locations = Location.exact_search(params[:search]).
+    partial_search(params[:search_partial])
   end
 
   def show
