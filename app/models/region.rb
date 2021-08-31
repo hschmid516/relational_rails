@@ -10,7 +10,7 @@ class Region < ApplicationRecord
   end
 
   def min_koroks(koroks)
-    koroks = 0 if koroks == nil
+    koroks = 0 if koroks.nil?
     locations.where("korok_seeds > #{koroks}")
   end
 

@@ -1,22 +1,22 @@
 <body id='show'>
-<div id="show_sidebar">
-  <ul class='nav'>
-    <li class='nav'><a class='nav' href="/">Home</a></li>
-    <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
-    <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
-  </ul>
+  <div id="show_sidebar">
+    <ul class='nav'>
+      <li class='nav'><a class='nav' href="/">Home</a></li>
+      <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
+      <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
+    </ul>
 
-<h1 id=zelda_show><%= @location.name %></h1>
+    <h1 id=zelda_show><%= @location.name %></h1>
 
-  <section id='show_p'>ID: <%= @location.id %></section>
-  <section id='show_p'>Region ID: <%= @location.region_id %></section>
-  <section id='show_p'>Created At: <%= @location.created_at %></section>
-  <section id='show_p'>Updated At: <%= @location.updated_at %></section>
-  <section id='show_p'>Is Cold: <%= @location.is_cold %></section>
-  <section id='show_p'>Number of Korok Seeds: <%= @location.korok_seeds %></section><br>
+    <section id='show_p'>ID: <%= @location.id %></section>
+    <section id='show_p'>Region ID: <%= @location.region_id %></section>
+    <section id='show_p'>Created At: <%= @location.created_at %></section>
+    <section id='show_p'>Updated At: <%= @location.updated_at %></section>
+    <section id='show_p'>Is Cold: <%= @location.is_cold %></section>
+    <section id='show_p'>Number of Korok Seeds: <%= @location.korok_seeds %></section><br>
 
 
-<%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get, class: 'button_show' %><br><br>
-<%= button_to "Delete #{@location.name}", "/locations/#{@location.id}", method: :delete, class: 'button_show' %>
-</div>
+    <%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get, class: 'button_show' %><br><br>
+    <%= button_to "Delete #{@location.name}", "/locations/#{@location.id}", method: :delete, class: 'button_show' %>
+  </div>
 </body>
