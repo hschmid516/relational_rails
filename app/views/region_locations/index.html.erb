@@ -2,7 +2,7 @@
 <a href="/locations">All Locations</a>
 <h1><%= @region.name %> - Locations</h1>
 
-<% @locations = @region.ordered_locations if params[:order] %>
+<% @locations = @region.ordered_locations if params[:sort_locations] %>
 <% @locations.each do |location| %>
     <h3><a href="/locations/<%= location.id %>"><%= location.name %></a></h3>
   <ul>
@@ -17,7 +17,7 @@
 
 <%= button_to "New Location", "/regions/#{@region.id}/locations/new", method: :get, class: 'button' %><br>
 
-<%= link_to "Sort Locations Alphabetically", "/regions/#{@region.id}/locations?order=true"%><br><br>
+<%= link_to "Sort Locations Alphabetically", "/regions/#{@region.id}/locations?sort_locations=true"%><br><br>
 
 <%= form_with url: "/regions/#{@region.id}/locations", method: :get, local: true do |form| %>
   <% params[:korok_seeds] ||= 0 %>

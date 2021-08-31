@@ -1,6 +1,7 @@
 class RegionsController < ApplicationController
   def index
-    @regions = Region.ordered_regions
+    @regions = Region.exact_search(params[:search]).
+    partial_search(params[:search_partial]).ordered_regions(params[:sort])
   end
 
   def show
@@ -11,7 +12,7 @@ class RegionsController < ApplicationController
   end
 
   def create
-    region = Region.create!(region_params)
+    Region.create!(region_params)
     redirect_to "/regions"
   end
 
@@ -26,7 +27,7 @@ class RegionsController < ApplicationController
   end
 
   def destroy
-    region = Region.destroy(params[:id])
+    Region.destroy(params[:id])
     redirect_to '/regions'
   end
 
