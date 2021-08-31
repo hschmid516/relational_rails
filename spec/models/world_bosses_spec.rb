@@ -37,4 +37,12 @@ describe WorldBoss, type: :model do
   it 'sorts bosses by the amount of loot they have' do
     expect(WorldBoss.ordered_bosses('loots')).to eq([@mortanis, @muckformed, @oranomonos])
   end
+
+  it 'searches for boss by exact name' do
+    expect(WorldBoss.exact_search(@mortanis.name)).to eq([@mortanis])
+  end
+
+  it 'searches for boss by partial name' do
+    expect(WorldBoss.partial_search(@mortanis.name)).to eq([@mortanis])
+  end
 end

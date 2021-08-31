@@ -82,4 +82,20 @@ RSpec.describe "Bosses index page", type: :feature do
     expect(page).to have_content("Pieces of Loot: #{@muckformed.loot_count}")
     expect(page).to have_content("Pieces of Loot: #{@oranomonos.loot_count}")
   end
+
+  it 'filters search by exact name' do
+    fill_in "search_exact", with: "#{@mortanis.name}"
+    click_button("Search by exact name")
+    expect(current_path).to eq("/world_bosses")
+    expect(page).to have_content("#{@mortanis.name}")
+    expect(page).to_not have_content("#{@muckformed.name}")
+  end
+
+  it 'filters search by partial name' do
+    fill_in "search_partial", with: "Mor"
+    click_button("Search by partial name")
+    expect(current_path).to eq("/world_bosses")
+    expect(page).to have_content("#{@mortanis.name}")
+    expect(page).to_not have_content("#{@muckformed.name}")
+  end
 end
