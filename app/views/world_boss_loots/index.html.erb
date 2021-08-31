@@ -1,16 +1,22 @@
-<a href="/"> Home</a>
-<a href="/world_bosses"> All World Bosses</a>
-<a href="/loots"> All Loot</a>
+<body class="location">
+  <div class="location_margin">
+    <ul class='nav'>
+      <li class='nav'><a class='nav' href="/">Home</a></li>
+      <li class='nav'><a class='nav' href="/world_bosses">All World Bosses</a></li>
+      <li class='nav'><a class='nav' href="/loots">All Loot</a></li>
+    </ul>
 
-<h1><%= "#{@world_boss.name} Loot Table" %></h1>
+<h1 id='zelda'><%= "#{@world_boss.name} Loot Table" %></h1>
 
 <% @loots = @world_boss.min_armor(params[:armor]) if params[:armor] %>
 <% @loots.each do |loot| %>
-  <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
-  <ul>
-    <li>Is it a memory? <%= loot.memory %> </li>
-    <li> Armor: <%= loot.armor %> </li>
-  </ul>
+  <div class="container">
+    <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
+    <ul>
+      <li>Is it a memory? <%= loot.memory %> </li>
+      <li> Armor: <%= loot.armor %> </li>
+    </ul>
+  </div>
 <% end %>
 
 <%= button_to "New Loot", "/world_bosses/#{@world_boss.id}/loots/new", method: :get, class: 'button' %> <br><br>
@@ -21,3 +27,6 @@
 <%= form.number_field :armor %>
 <%= form.submit "Filter by armor", class: 'button' %>
 <% end %>
+
+</div>
+</body>
