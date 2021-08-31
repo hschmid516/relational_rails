@@ -46,8 +46,8 @@ RSpec.describe "locations index page", type: :feature do
   end
 
   it 'has a form to input a number' do
-    fill_in('Korok seeds', with: 6)
-    click_button("Only return records with more than 0 Korok Seeds")
+    fill_in('korok_seeds', with: 6)
+    click_button("Filter by Korok Seeds")
 
     expect(current_path).to eq("/regions/#{@akkala.id}/locations")
     expect(page).to have_content("Tarrey Town")
