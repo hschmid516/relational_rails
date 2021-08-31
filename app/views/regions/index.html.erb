@@ -1,17 +1,21 @@
 <body class="region">
   <div class="region_margin">
+    <ul class='nav'>
+      <li class='nav'><a class='nav' href="/">Home</a></li>
+      <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
+      <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
+    </ul>
 
-    <a href="/locations">All Locations</a>
     <h1 id="zelda">Legend of Zelda: <br>Breath of the Wild - Regions</h1>
 
     <%= form_with url: "/regions", method: :get, local: true do |f| %>
-    <%= f.text_field :search %>
-    <%= f.submit "Search by Exact Name", class: 'button_search' %>
+    <%= f.text_field :search, class: 'region_fields' %>
+    <%= f.submit "Search by Exact Name", class: 'button' %>
     <% end %><br>
 
     <%= form_with url: "/regions", method: :get, local: true do |f| %>
-    <%= f.text_field :search_partial %>
-    <%= f.submit "Search by Partial Name", class: 'button_search' %>
+    <%= f.text_field :search_partial, class: 'region_fields' %>
+    <%= f.submit "Search by Partial Name", class: 'button' %>
     <% end %>
 
     <% @regions.each do |region| %>
@@ -27,7 +31,7 @@
     <% end %>
     <br>
 
-    <%= button_to "New Region", "/regions/new", method: :get, class: 'button_new' %>
+    <%= button_to "New Region", "/regions/new", method: :get, class: 'button_new' %><br>
     <%= button_to "Sort by Number of Locations", "/regions", params: {sort: :locations}, method: :get, class: 'button_new' %>
     <br>
   </div>
