@@ -1,11 +1,15 @@
-<h1>Create a New Location for <%= @region.name %></h1>
+<body class="new_update">
+  <div class="new_update_margin">
+    <h1>Create a New Location for <%= @region.name %></h1>
 
-<%= form_with url: "/regions/#{@region.id}/locations", method: :post, local: true do |form| %>
-  <%= form.label :name %><br>
-  <%= form.text_field :name %><br><br>
-  <%= form.label :is_cold %><br>
-  <%= form.check_box :is_cold %><br><br>
-  <%= form.label :korok_seeds %><br>
-  <%= form.number_field :korok_seeds %><br><br>
-  <%= form.submit "Create Location", class: 'button' %>
-<% end %>
+    <b><%= form_with url: "/regions/#{@region.id}/locations", method: :post, local: true do |form| %>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, class: 'form_update' %><br><br><br>
+      <%= form.label :korok_seeds %><br>
+      <%= form.number_field :korok_seeds, class: 'form_update' %><br><br><br>
+      <%= form.label :is_cold %><br>
+      <%= form.check_box :is_cold, class: 'form_update' %><br><br><br>
+      <%= form.submit "Create Location", class: 'button_update' %>
+    <% end %></b>
+  </div>
+</body>
