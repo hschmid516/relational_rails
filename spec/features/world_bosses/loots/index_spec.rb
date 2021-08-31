@@ -42,9 +42,11 @@ RSpec.describe "Loots shows on individual boss pages", type: :feature do
   end
 
   it 'allows the user to put in a number and submit' do
-    fill_in('armor', with: 50)
+    fill_in('armor', with: 26)
     click_button("Filter by armor")
 
     expect(current_path).to eq("/world_bosses/#{@mortanis.id}/loots")
+    expect(page).to have_content("Spine Crawler Waistcord")
+    expect(page).to_not have_content("Memory of Fujieda")
   end
 end
