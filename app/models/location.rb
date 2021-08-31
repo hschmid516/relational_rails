@@ -1,7 +1,7 @@
 class Location < ApplicationRecord
   belongs_to :region
 
-  # def self.ordered_locations
-  #
-  # end
+  scope :exact_search, ->(search) { where(name: search) if search != nil}
+
+  scope :partial_search, ->(search) { where("name ilike ?", "%#{search}%") if search != nil}
 end

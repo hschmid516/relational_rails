@@ -1,6 +1,6 @@
 class WorldBossesController < ApplicationController
   def index
-    @world_bosses = WorldBoss.ordered_bosses
+    @world_bosses = WorldBoss.exact_search(params[:search_exact]).partial_search(params[:search_partial]).ordered_bosses(params[:sort])
   end
 
   def show

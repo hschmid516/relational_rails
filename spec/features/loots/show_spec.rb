@@ -20,7 +20,7 @@ RSpec.describe "Loots show page", type: :feature do
     expect(page).to_not have_content(@mu_memory.world_boss_id)
   end
 
-  it 'has a link for all bosses and all loot' do
+  it 'has a link for all pages' do
     visit "/loots/#{@ring.id}"
 
     expect(page).to have_link("All World Bosses")
@@ -30,6 +30,9 @@ RSpec.describe "Loots show page", type: :feature do
     expect(page).to have_link("All Loot")
     click_link("All Loot")
     expect(current_path).to eq("/loots")
+
+    click_link("Home")
+    expect(current_path).to eq("/")
 
   end
 

@@ -22,11 +22,7 @@ RSpec.describe "Loots has an index page", type: :feature do
     expect(page).to have_content(@m_memory.name)
     expect(page).to have_content(@mu_memory.name)
     expect(page).to have_content(@feet.name)
-    expect(page).to have_content("Updated at: #{@gloves.updated_at}")
-    expect(page).to have_content("Boss ID: #{@feet.world_boss_id}")
-    expect(page).to have_content("Created at: #{@m_memory.created_at}")
-    expect(page).to have_content("ID: #{@cloth_belt.id}")
-    expect(page).to have_content("World of Warcraft(Shadowlands) Loot Table")
+    expect(page).to have_content("World of Warcraft Shadowlands Loot Table")
   end
 
   it 'has a link to each Loot with true booleans' do
@@ -43,7 +39,7 @@ RSpec.describe "Loots has an index page", type: :feature do
     expect(current_path).to eq("/loots/#{@cloth_belt.id}")
 
   end
-  it 'has a link for all bosses and all loot' do
+  it 'has a link for all pages' do
 
     expect(page).to have_link("All World Bosses")
     click_link("All World Bosses")
@@ -52,6 +48,9 @@ RSpec.describe "Loots has an index page", type: :feature do
     expect(page).to have_link("All Loot")
     click_link("All Loot")
     expect(current_path).to eq("/loots")
+
+    click_link("Home")
+    expect(current_path).to eq("/")
 
   end
 
@@ -72,5 +71,21 @@ RSpec.describe "Loots has an index page", type: :feature do
     click_button 'Delete Memory of a Frenzied Monstrosity'
     expect(current_path).to eq("/loots")
     expect(page).to_not have_content(@mu_memory.name)
+  end
+
+  it 'filters search by exact name' do
+    fill_in "search_exact", with: "#{@mu_memory.name}"
+    click_button("Search by exact name")
+    expect(current_path).to eq("/loots")
+    expect(page).to have_content("#{@mu_memory.name}")
+    expect(page).to_not have_content("#{@cloth_belt.name}")
+  end
+
+  it 'filters search by partial name' do
+    fill_in "search_partial", with: "Cas"
+    click_button("Search by partial name")
+    expect(current_path).to eq("/loots")
+    expect(page).to have_content("#{@gloves.name}")
+    expect(page).to_not have_content("#{@cloth_belt.name}")
   end
 end

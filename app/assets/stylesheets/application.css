@@ -14,52 +14,221 @@
  *= require_self
  */
  @font-face {
-   font-family: 'zelda';
-   src: url(/assets/fonts/zelda.otf) format("truetype");
+   font-family: "zelda";
+   src: url('/assets/zelda.otf');
 }
+
 .button {
-  background-color: rgb(40,53,76);
+  background-color: rgba(82,111,136,0.7);
   border: none;
-  color: white;
+  color: #fff;
+  padding: 10px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 50px;
+  transition-duration: 0.4s;
+  box-shadow:     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+  font-family: "Trebuchet MS";
+  font-weight: bold;
+  text-shadow:1px 1px 10px #000000, 1px 1px 10px #ccc;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.button_location {
+  background-color: rgba(133,91,140,0.7);
+  border: none;
+  color: #fff;
   padding: 10px 22px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
+  font-size: 12px;
+  border-radius: 50px;
   transition-duration: 0.4s;
   box-shadow:     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+  font-family: "Trebuchet MS";
+  font-weight: bold;
+  text-shadow:1px 1px 10px #000000, 1px 1px 10px #ccc;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.button_new {
+  background-color: rgba(82,111,136,0.7);
+  border: none;
+  color: #fff;
+  padding: 15px 27px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 50px;
+  transition-duration: 0.4s;
+  box-shadow: 7px 7px 25px rgba(0,0,0, .4),
+            -7px -7px 35px rgba(255, 255, 255, .4),
+            inset 0px 0px 4px rgba(255, 255, 255, .3),
+            inset 7px 7px 15px rgba(198, 206, 237, .3);
+  font-family: "Trebuchet MS";
+  font-weight: bold;
+  text-shadow:1px 1px 10px #000000, 1px 1px 10px #ccc;
 }
 
 .button_show {
   background-color: rgb(22,175,198);
   border: none;
-  color: white;
+  color: black;
   padding: 10px 22px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  font-family: "Trebuchet MS";
   font-size: 16px;
-  border-radius: 12px;
+  border-radius: 50px;
   transition-duration: 0.4s;
+  font-weight: bold;
   box-shadow:     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+
+}
+
+.button_update {
+  background-color: rgba(47,85,94,0.7);
+  border: none;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(11,25,31);
+  display: inline-block;
+  font-family: "Trebuchet MS";
+  font-size: 16px;
+  border-radius: 50px;
+  transition-duration: 0.7s;
+  font-weight: bold;
+  box-shadow:     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+
+}
+
+.form_update {
+  background-color: rgb(47,85,94);
+  border: none;
+  color: black;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  font-family: "Trebuchet MS";
+  font-size: 14px;
+  border-radius: 50px;
+  transition-duration: 0.4s;
+  font-weight: bold;
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+  inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+}
+
+.button_update:hover {
+ background-color: rgba(47,85,94,0.7);
+ box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+ inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+}
+
+.button_location:hover {
+ background-color: rgba(133,91,140,0.7);
+ box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+ inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+}
+
+.button_show:hover {
+ background-color: rgb(22,175,198);
+ box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+ inset -6px -6px 6px rgba(255, 255, 255, 0.3);
 }
 
  .button:hover {
-  background-color: #4CAF50;
+  background-color: rgba(82,111,136,0.7);
+  color: white;
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+  inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+}
+
+ .button_new:hover {
+  background-color: #008CBA;
   color: white;
 }
 
-#region {
+.region {
+  font-family: "Trebuchet MS";
+  text-align: center;
+  width : 100%;
+  margin: auto;
+  background-attachment: fixed;
   background-image: url(zelda_index.jpeg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
-  font-family: zelda;
+}
+
+.new_update {
+  font-family: "Trebuchet MS";
+  text-align: center;
+  width : 100%;
+  margin: auto;
+  background-image: url(new_update.jpeg);
+  -webkit-background-size: cover;
+      -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+.location {
+  font-family: "Trebuchet MS";
+  text-align: center;
+  width : 100%;
+  margin: auto;
+  background-attachment: fixed;
+  background-image: url(location_index.jpeg);
+  -webkit-background-size: cover;
+      -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+.region_margin {
+  width : 32%;
+  height: 100%;
+  background-color: rgba(82,111,136,0.7);
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+.location_margin {
+  width : 32%;
+  height: 100%;
+  background-color: rgba(133,91,140,0.7);
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+.new_update_margin {
+  width : 23%;
+  height: 53vh;
+  background-color: rgba(47,85,94,0.7);
+  padding-top: 20px;
+  padding-bottom: 25px;
+  margin-left: 120px;
+  margin-top: 30px;
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25), inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
 }
 
 #show {
@@ -69,12 +238,25 @@
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
+  text-align: center;
 }
 
-#show_background {
+#show_sidebar {
   background-color: rgb(22,175,198);
-  width : 20%;
+  width : 25%;
   height: 100vh;
+}
+
+#zelda {
+  font-size: 38px;
+  font-family: "zelda";
+}
+
+#zelda_show {
+  font-size: 45px;
+  font-family: "zelda";
+  color: black;
+  text-shadow:1px 1px 10px #008CBA, 1px 1px 10px #ccc;
 }
 
 h1 {
@@ -85,4 +267,104 @@ h1 {
 a {
   text-shadow:1px 1px 10px #008CBA, 1px 1px 1px #ccc;
   color: #fff;
+  font-family: "Trebuchet MS";
+}
+
+p {
+  text-shadow:1px 1px 5px #fff, 1px 1px 1px;
+  color: #000000;
+}
+
+ul {
+  text-align: left
+}
+
+body {
+  font-family: "Trebuchet MS";
+}
+
+.koroks {
+  border: none;
+  color: black;
+  padding: 8px 0;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  font-family: "Trebuchet MS";
+  font-size: 14px;
+  border-radius: 50px;
+  transition-duration: 0.4s;
+  font-weight: bold;
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+  inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+  background-color: rgba(133,91,140,0.7);
+}
+
+.region_fields {
+  border: none;
+  color: black;
+  padding: 8px 0;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  font-family: "Trebuchet MS";
+  font-size: 14px;
+  border-radius: 50px;
+  transition-duration: 0.4s;
+  font-weight: bold;
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25),
+  inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+  background-color: rgba(82,111,136,0.7);
+}
+
+.container {
+  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.25), inset -6px -6px 6px rgba(255, 255, 255, 0.3);
+  padding-top: 2px;
+  padding-bottom: 10px;
+  margin: 20px 40px;
+  border-radius: 50px;
+}
+
+ul.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 40px;
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+li.nav {
+  float: left;
+}
+
+li a.nav {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+li a.nav:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+#world_bosses {
+  background-image: url(wow_index_page.jpeg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  font-family: wow;
+  text-align: center;
 }

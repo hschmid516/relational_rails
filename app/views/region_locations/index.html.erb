@@ -1,27 +1,36 @@
-<a href="/regions">All Regions</a>
-<a href="/locations">All Locations</a>
-<h1><%= @region.name %> - Locations</h1>
+<body class="location">
+  <div class="location_margin">
+    <ul class='nav'>
+      <li class='nav'><a class='nav' href="/">Home</a></li>
+      <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
+      <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
+    </ul>
 
-<% @locations = @region.ordered_locations if params[:order] %>
-<% @locations.each do |location| %>
-    <h3><a href="/locations/<%= location.id %>"><%= location.name %></a></h3>
-  <ul>
-    <li>ID: <%= location.id %></li>
-    <li>Region ID: <%= location.region_id %></li>
-    <li>Created At: <%= location.created_at %></li>
-    <li>Updated At: <%= location.updated_at %></li>
-    <li>Is Cold: <%= location.is_cold %></li>
-    <li>Number of Korok Seeds: <%= location.korok_seeds %></li>
-  </ul>
-<% end %>
+    <h1 id='zelda'><%= @region.name %> - Locations</h1>
 
-<%= button_to "New Location", "/regions/#{@region.id}/locations/new", method: :get, class: 'button' %><br>
+    <%= form_with url: "/regions/#{@region.id}/locations", method: :get, local: true do |form| %>
+    <% params[:korok_seeds] ||= 0 %>
+    <%= form.number_field :korok_seeds, class: 'koroks' %>
+    <%= form.submit "Filter by Korok Seeds", class: 'button_location'  %>
+    <% end %><br>
+    <%= link_to "Sort Locations Alphabetically", "/regions/#{@region.id}/locations?sort_locations=true"%>
 
-<%= link_to "Sort Locations Alphabetically", "/regions/#{@region.id}/locations?order=true"%><br><br>
+    <% @locations = @region.ordered_locations if params[:sort_locations] %>
+    <% @locations.each do |location| %>
+      <div class="container">
+        <h3><a href="/locations/<%= location.id %>"><%= location.name %></a></h3>
+        <ul>
+          <li>ID: <%= location.id %></li>
+          <li>Region ID: <%= location.region_id %></li>
+          <li>Created At: <%= location.created_at %></li>
+          <li>Updated At: <%= location.updated_at %></li>
+          <li>Is Cold: <%= location.is_cold %></li>
+          <li>Number of Korok Seeds: <%= location.korok_seeds %></li>
+        </ul>
+      </div>
+    <% end %>
 
-<%= form_with url: "/regions/#{@region.id}/locations", method: :get, local: true do |form| %>
-  <% params[:korok_seeds] ||= 0 %>
-  <%= form.label :korok_seeds %>
-  <%= form.number_field :korok_seeds %>
-  <%= form.submit "Only return records with more than #{params[:korok_seeds]} Korok Seeds", class: 'button'  %>
-<% end %>
+    <%= button_to "New Location", "/regions/#{@region.id}/locations/new", method: :get, class: 'button_location' %><br>
+
+  </div>
+</body>

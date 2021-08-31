@@ -62,4 +62,28 @@ RSpec.describe "locations index page", type: :feature do
 
     expect(current_path).to eq("/locations/#{@tarrey.id}/edit")
   end
+
+  it 'can delete locations from index page' do
+    click_button("Delete #{@tarrey.name}")
+
+    expect(current_path).to eq("/locations")
+    expect(page).to_not have_content("#{@tarrey.name}")
+  end
+
+  it 'searches for locations by exact name' do
+
+    fill_in('search', with: "#{@tarrey.name}")
+    click_button('Search by Exact Name')
+
+    expect(page).to have_content("#{@tarrey.name}")
+    expect(page).to_not have_content("#{@hylia.name}")
+  end
+
+  it 'searches for locations by partial name' do
+    fill_in('search_partial', with: "tarr")
+    click_button('Search by Partial Name')
+
+    expect(page).to have_content("#{@tarrey.name}")
+    expect(page).to_not have_content("#{@hylia.name}")
+  end
 end

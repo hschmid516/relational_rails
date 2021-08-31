@@ -1,9 +1,12 @@
 <body id='show'>
-<div id="show_background">
-
-<a href="/regions">All Regions</a>
-<a href="/locations">All Locations</a>
-<h1><%= @location.name %></h1>
+<div id="show_sidebar">
+  <ul class='nav'>
+    <li class='nav'><a class='nav' href="/">Home</a></li>
+    <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
+    <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
+  </ul>
+  
+<h1 id=zelda_show><%= @location.name %></h1>
 
 <ul>
   <li>ID: <%= @location.id %></li>
@@ -12,9 +15,9 @@
   <li>Updated At: <%= @location.updated_at %></li>
   <li>Is Cold: <%= @location.is_cold %></li>
   <li>Number of Korok Seeds: <%= @location.korok_seeds %></li>
-</ul>
+</ul><br>
 
-<%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get, class: 'button_show' %><br>
+<%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get, class: 'button_show' %><br><br>
 <%= button_to "Delete #{@location.name}", "/locations/#{@location.id}", method: :delete, class: 'button_show' %>
 </div>
 </body>

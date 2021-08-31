@@ -1,10 +1,6 @@
 class WorldBoss < ApplicationRecord
   has_many :loots, dependent: :delete_all
 
-  def self.ordered_bosses
-    order(created_at: :desc)
-  end
-
   def loot_count
     loots.count
   end
@@ -17,8 +13,19 @@ class WorldBoss < ApplicationRecord
     end
   end
 
+  def self.ordered_bosses(sort)
+    if sort == 'loots'
+      left_joins(:loots).group(:id).order('loots.count DESC')
+    else
+      order(created_at: :desc)
+    end
+  end
+
   def min_armor(armor)
     armor = 0 if armor == nil
     loots.where("armor > #{armor}")
   end
+
+  scope :exact_search, ->(search) {where(name: search) if search != nil}
+  scope :partial_search, ->(search) { where("name ilike ?", "%#{search}%") if search != nil}
 end

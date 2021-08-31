@@ -1,3 +1,4 @@
+<a href="/"> Home</a>
 <a href="/world_bosses"> All World Bosses</a>
 <a href="/loots"> All Loot</a>
 <h1> <%= @loot.name %></h1>
@@ -11,5 +12,5 @@
   <li> Armor: <%= @loot.armor %> </li>
 </ul>
 
-<%= button_to "Update #{@loot.name}", "/loots/#{@loot.id}/edit", method: :get %>
-<%= button_to "Delete #{@loot.name}", "/loots/#{@loot.id}/delete", method: :delete %>
+<%= button_to "Update #{@loot.name}", "/loots/#{@loot.id}/edit", method: :get, class: 'button' %>
+<%= button_to "Delete #{@loot.name}", "/loots/#{@loot.id}/delete", method: :delete, class: 'button' %>
