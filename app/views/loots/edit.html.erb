@@ -1,12 +1,15 @@
-<h1> <%=  "Edit Loot #{@loot.name}"%></h1>
-<%= form_with url: "/loots/#{@loot.id}", method: :patch, local: true do |form| %>
-  <p><%= form.label :name %><br>
-  <%= form.text_field :name %>
-  <p><%= form.label :armor %><br>
-  <%= form.number_field :armor %>
-  <p> <%= form.label :memory %><br>
-  <%= form.check_box :memory %><br><br>
+<body class="new_update">
+  <div class="new_update_margin">
+    <h1> <%=  "Edit #{@loot.name}"%></h1>
 
-  <%= form.submit "Update Loot", class: 'button'%>
-
-<% end %>
+    <b><%= form_with url: "/loots/#{@loot.id}", method: :patch, local: true do |form| %>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, value: "#{@loot.name}", class: 'form_update' %><br><br><br>
+    <%= form.label :armor %><br>
+    <%= form.number_field :armor, value: "#{@loot.armor}", class: 'form_update' %><br><br><br>
+    <%= form.label :memory %><br>
+    <%= form.check_box :memory, {checked: @loot.armor}, class: 'form_update' %><br><br><br>
+      <%= form.submit "Update Loot", class: 'button_update'%>
+    <% end %></b>
+  </div>
+</body>

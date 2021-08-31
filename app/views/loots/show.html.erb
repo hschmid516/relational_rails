@@ -1,7 +1,12 @@
-<a href="/"> Home</a>
-<a href="/world_bosses"> All World Bosses</a>
-<a href="/loots"> All Loot</a>
-<h1> <%= @loot.name %></h1>
+<body id='show'>
+<div id="show_sidebar">
+  <ul class='nav'>
+    <li class='nav'><a class='nav' href="/">Home</a></li>
+    <li class='nav'><a class='nav' href="/world_bosses">All World Bosses</a></li>
+    <li class='nav'><a class='nav' href="/loots">All Looot</a></li>
+  </ul>
+
+<h1 id=zelda_show> <%= @loot.name %></h1>
 
 <ul>
   <li> ID: <%= @loot.id %> </li>
@@ -14,3 +19,5 @@
 
 <%= button_to "Update #{@loot.name}", "/loots/#{@loot.id}/edit", method: :get, class: 'button' %>
 <%= button_to "Delete #{@loot.name}", "/loots/#{@loot.id}/delete", method: :delete, class: 'button' %>
+</div>
+</body>
