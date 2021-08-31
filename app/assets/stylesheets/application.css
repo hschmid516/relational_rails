@@ -33,7 +33,7 @@
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
   font-family: "Trebuchet MS";
   font-weight: bold;
-  text-shadow:1px 1px 10px #000000, 1px 1px 10px #ccc;
+  text-shadow:1px 1px 10px #008CBA, 1px 1px 10px #ccc;
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -53,7 +53,7 @@
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
   font-family: "Trebuchet MS";
   font-weight: bold;
-  text-shadow:1px 1px 10px #000000, 1px 1px 10px #ccc;
+  text-shadow:1px 1px 10px #008CBA, 1px 1px 10px #ccc;
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -207,7 +207,6 @@
   width : 32%;
   height: 100%;
   background-color: rgba(82,111,136,0.7);
-  padding-top: 20px;
   padding-bottom: 25px;
 }
 
@@ -215,7 +214,6 @@
   width : 32%;
   height: 100%;
   background-color: rgba(133,91,140,0.7);
-  padding-top: 20px;
   padding-bottom: 25px;
 }
 
@@ -233,6 +231,16 @@
 
 #show {
   background-image: url(shows.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+}
+
+#home {
+  background-image: url(home.png);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -271,8 +279,15 @@ a {
 }
 
 p {
-  text-shadow:1px 1px 5px #fff, 1px 1px 1px;
-  color: #000000;
+  text-shadow:1px 1px 5px #008CBA, 1px 1px 1px;
+  color: #fff;
+  font-size: 13px;
+}
+
+#show_p {
+  font-weight: bold;
+  color: black;
+  font-size: 13px;
 }
 
 ul {
@@ -347,7 +362,7 @@ li a.nav {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 li a.nav:hover:not(.active) {
@@ -356,6 +371,16 @@ li a.nav:hover:not(.active) {
 
 .active {
   background-color: #04AA6D;
+}
+
+.zelda2 {
+  font-size: 50px;
+  font-family: "zelda";
+}
+
+.show_link {
+  color: black;
+  font-weight: bold;
 }
 
 #world_bosses {
