@@ -1,5 +1,6 @@
 <body class="new_update_wow">
   <div class="new_update_margin">
+
     <h1> <%=  "Edit #{@loot.name}"%></h1>
 
     <b><%= form_with url: "/loots/#{@loot.id}", method: :patch, local: true do |form| %>

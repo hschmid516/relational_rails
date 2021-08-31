@@ -1,14 +1,8 @@
 class LootsController < ApplicationController
+  before_action :find_by_id, only: [:show, :edit, :update]
+
   def index
     @loots = Loot.exact_search(params[:search_exact]).partial_search(params[:search_partial]).show_true
-  end
-
-  def show
-    @loot = Loot.find(params[:id])
-  end
-
-  def edit
-    @loot = Loot.find(params[:id])
   end
 
   def update
@@ -25,5 +19,9 @@ class LootsController < ApplicationController
 private
   def loot_params
     params.permit(:name)
+  end
+
+  def find_by_id
+    @loot = Loot.find(params[:id])
   end
 end

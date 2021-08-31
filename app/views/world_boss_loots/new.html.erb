@@ -1,12 +1,15 @@
-<h1> Add Some Loot</h1>
-<%= form_with url: "/world_bosses/#{@world_boss.id}/loots", method: :post, local: true do |form| %>
-  <p><%= form.label :name %><br>
-  <%= form.text_field :name %>
-  <p><%= form.label :armor %><br>
-  <%= form.number_field :armor %>
-  <p> <%= form.label :memory %><br>
-  <%= form.check_box :memory %>
+<body class="new_update_wow">
+  <div class="new_update_margin">
 
-  <%= form.submit "Create Loot", class: 'button' %>
-
-<% end %>
+    <h1> Add Some Loot</h1>
+    <%= form_with url: "/world_bosses/#{@world_boss.id}/loots", method: :post, local: true do |form| %>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, class: 'form_update' %><br><br><br>
+      <%= form.label :armor %><br>
+      <%= form.number_field :armor, class: 'form_update' %><br><br><br>
+       <%= form.label :memory %><br>
+      <%= form.check_box :memory, class: 'form_update' %><br><br><br>
+      <%= form.submit "Create Loot", class: 'button_update' %>
+    <% end %>
+  </div>
+</body>
