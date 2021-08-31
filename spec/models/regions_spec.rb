@@ -10,7 +10,6 @@ describe Region, type: :model do
     @temple = @great_plateau.locations.create!(name: "Temple of Time", is_cold: true, korok_seeds: 8)
     @shrine = @great_plateau.locations.create!(name: "Shrine of Resurrection", is_cold: true, korok_seeds: 4)
     @tarrey = @akkala.locations.create!(name: "Tarrey Town", is_cold: true, korok_seeds: 13)
-
   end
 
   it 'has regions ordered by created at' do
@@ -31,5 +30,13 @@ describe Region, type: :model do
 
   it 'sorts regions by number of locations' do
     expect(Region.ordered_regions('locations')).to eq([@great_plateau, @akkala])
+  end
+
+  it 'searches for region by exact name' do
+    expect(Region.exact_search(@great_plateau.name)).to eq([@great_plateau])
+  end
+
+  it 'searches for region by partial name' do
+    expect(Region.partial_search('Great')).to eq([@great_plateau])
   end
 end

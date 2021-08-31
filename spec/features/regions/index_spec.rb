@@ -69,4 +69,21 @@ RSpec.describe "regions index page", type: :feature do
     expect(page).to have_content("Number of Locations: #{@great_plateau.location_count}")
     expect(page).to have_content("Number of Locations: #{@akkala.location_count}")
   end
+
+  it 'searches for regions by exact name' do
+
+    fill_in('search', with: "#{@akkala.name}")
+    click_button('Search by Exact Name')
+
+    expect(page).to have_content("#{@akkala.name}")
+    expect(page).to_not have_content("#{@great_plateau.name}")
+  end
+
+  it 'searches for regions by partial name' do
+    fill_in('search_partial', with: "akk")
+    click_button('Search by Partial Name')
+
+    expect(page).to have_content("#{@akkala.name}")
+    expect(page).to_not have_content("#{@great_plateau.name}")
+  end
 end
