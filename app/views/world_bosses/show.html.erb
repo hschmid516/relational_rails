@@ -1,5 +1,5 @@
 <body id='show_wow'>
-<div id="show_sidebar">
+<div id="show_wow_sidebar">
   <ul class='nav'>
     <li class='nav'><a class='nav' href="/">Home</a></li>
     <li class='nav'><a class='nav' href="/world_bosses">All World Bosses</a></li>
@@ -14,7 +14,7 @@
     <p> Pieces of loot: <%= @world_boss.loot_count %></p>
 
     <%= button_to "Edit #{@world_boss.name}", "/world_bosses/#{@world_boss.id}/edit",
-    method: :get, class: 'button' %>
+    method: :get, class: 'button' %><br>
     <%= button_to "Delete #{@world_boss.name}", "/world_bosses/#{@world_boss.id}/delete",
     method: :delete, class: 'button' %>
 

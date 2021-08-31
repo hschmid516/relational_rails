@@ -1,12 +1,17 @@
-<h1> Add A Boss </h1>
-<%= form_with url: '/world_bosses', method: :post, local: true do |form| %>
-  <%= form.label :name %><br>
-  <%= form.text_field :name %><br><br>
-  <%= form.label :max_health %><br>
-  <%= form.number_field :max_health %><br><br>
-  <%= form.label :is_current_boss %><br>
-  <%= form.check_box :is_current_boss %><br><br>
-  <%= form.label :zone %><br>
-  <%= form.text_field :zone %><br><br>
-  <%= form.submit "Create Boss", class: 'button' %>
-<% end %>
+<body class="new_update_wow">
+  <div class="new_update_margin">
+
+    <h1> Add A Boss </h1>
+    <%= form_with url: '/world_bosses', method: :post, local: true do |form| %>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, class: 'form_update' %><br><br>
+      <%= form.label :max_health %><br>
+      <%= form.number_field :max_health, class: 'form_update' %><br><br><br>
+      <%= form.label :is_current_boss %><br>
+      <%= form.check_box :is_current_boss %><br><br><br>
+      <%= form.label :zone %><br>
+      <%= form.text_field :zone, class: 'form_update' %><br><br><br>
+      <%= form.submit "Create Boss", class: 'button_update' %>
+    <% end %>
+  </div>
+</body>
