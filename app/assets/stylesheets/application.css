@@ -176,12 +176,39 @@
   height: 100%;
 }
 
+.boss {
+  font-family: "Trebuchet MS";
+  text-align: center;
+  width : 100%;
+  margin: auto;
+  background-attachment: fixed;
+  background-image: url(wow_index_page.jpeg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
 .new_update {
   font-family: "Trebuchet MS";
   text-align: center;
   width : 100%;
   margin: auto;
   background-image: url(new_update.jpeg);
+  -webkit-background-size: cover;
+      -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+.new_update_wow {
+  font-family: "Trebuchet MS";
+  text-align: center;
+  width : 100%;
+  margin: auto;
+  background-image: url(new_update_wow.jpeg);
   -webkit-background-size: cover;
       -moz-background-size: cover;
   -o-background-size: cover;
@@ -196,6 +223,20 @@
   margin: auto;
   background-attachment: fixed;
   background-image: url(location_index.jpeg);
+  -webkit-background-size: cover;
+      -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+.loot {
+  font-family: "Trebuchet MS";
+  text-align: center;
+  width : 100%;
+  margin: auto;
+  background-attachment: fixed;
+  background-image: url(loot_index.jpeg);
   -webkit-background-size: cover;
       -moz-background-size: cover;
   -o-background-size: cover;
@@ -233,6 +274,16 @@
 
 #show {
   background-image: url(shows.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+}
+
+#show_wow {
+  background-image: url(shows_wow.jpeg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -356,15 +407,4 @@ li a.nav:hover:not(.active) {
 
 .active {
   background-color: #04AA6D;
-}
-
-#world_bosses {
-  background-image: url(wow_index_page.jpeg);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-  font-family: wow;
-  text-align: center;
 }

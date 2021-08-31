@@ -1,27 +1,38 @@
-<body id="world_bosses">
-<a href="/"> Home</a>
-<a href="/world_bosses"> All World Bosses</a>
-<a href="/loots"> All Loot</a>
-<h1>World of Warcraft Shadowlands World Bosses</h1>
+<body class="boss">
+  <div class="region_margin">
+    <ul class='nav'>
+      <li class='nav'><a class='nav' href="/">Home</a></li>
+      <li class='nav'><a class='nav' href="/world_bosses">All World Bosses</a></li>
+      <li class='nav'><a class='nav' href="/loots">All Loot</a></li>
+    </ul>
 
-<%= form_with url: "/world_bosses", method: :get, local: true do |form| %>
-  <%= form.text_field :search_exact %>
-  <%= form.submit "Search by exact name", class: 'button' %>
-<% end %><br>
+    <h1 id="zelda">World of Warcraft Shadowlands <br> World Bosses</h1>
 
-<%= form_with url: "/world_bosses", method: :get, local: true do |form| %>
-  <%= form.text_field :search_partial %>
-  <%= form.submit "Search by partial name", class: 'button' %>
-<% end %>
+    <%= form_with url: "/world_bosses", method: :get, local: true do |form| %>
+    <%= form.text_field :search_exact %>
+    <%= form.submit "Search by exact name", class: 'button' %>
+    <% end %><br>
 
-<% @world_bosses.each do |boss| %>
-  <h2><a href="/world_bosses/<%= boss.id %>"><%= boss.name %></a></h2>
-  <p>Created at: <%= boss.created_at %></p>
-  <p>Pieces of Loot: <%= boss.loot_count %></p>
-  <p><%= button_to "Edit #{boss.name}", "/world_bosses/#{boss.id}/edit", method: :get, class: 'button' %></p>
-  <p><%= button_to "Delete #{boss.name}", "/world_bosses/#{boss.id}/delete", method: :delete, class: 'button' %></p>
-<% end %>
+    <%= form_with url: "/world_bosses", method: :get, local: true do |form| %>
+    <%= form.text_field :search_partial %>
+    <%= form.submit "Search by partial name", class: 'button' %>
+    <% end %>
 
-<%= button_to "New Boss", "/world_bosses/new", method: :get, class: 'button_new' %> <br>
-<%= button_to "Sort by loot amount", "/world_bosses", params: {sort: :loots}, method: :get, class: 'button_new' %>
+    <% @world_bosses.each do |boss| %>
+    <div class="container">
+      <h2><a href="/world_bosses/<%= boss.id %>"><%= boss.name %></a></h2>
+      <p><b>Created at: <%= boss.created_at %></p>
+      <p><b>Pieces of Loot: <%= boss.loot_count %></p>
+      <%= button_to "Edit #{boss.name}", "/world_bosses/#{boss.id}/edit",
+        method: :get, class: 'button', form: {style: 'display:inline-block;'} %>
+      <%= button_to "Delete #{boss.name}", "/world_bosses/#{boss.id}/delete",
+        method: :delete, class: 'button', form: {style: 'display:inline-block;'} %><br><br>
+    </div>
+    <% end %>
+    <br>
+
+    <%= button_to "New Boss", "/world_bosses/new", method: :get, class: 'button_new' %> <br>
+    <%= button_to "Sort by loot amount", "/world_bosses", params: {sort: :loots}, method: :get, class: 'button_new' %>
+    <br>
+  </div>
 </body>

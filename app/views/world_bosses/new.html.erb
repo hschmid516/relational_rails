@@ -1,14 +1,12 @@
 <h1> Add A Boss </h1>
 <%= form_with url: '/world_bosses', method: :post, local: true do |form| %>
-  <p><%= form.label :name %><br>
-  <%= form.text_field :name %>
-  <p><%= form.label :max_health %><br>
-  <%= form.number_field :max_health %>
-  <p> <%= form.label :is_current_boss %><br>
-  <%= form.check_box :is_current_boss %>
-  <p><%= form.label :zone %><br>
-  <%= form.text_field :zone %></p>
-
+  <%= form.label :name %><br>
+  <%= form.text_field :name %><br><br>
+  <%= form.label :max_health %><br>
+  <%= form.number_field :max_health %><br><br>
+  <%= form.label :is_current_boss %><br>
+  <%= form.check_box :is_current_boss %><br><br>
+  <%= form.label :zone %><br>
+  <%= form.text_field :zone %><br><br>
   <%= form.submit "Create Boss", class: 'button' %>
-
 <% end %>
