@@ -1,6 +1,7 @@
 class RegionsController < ApplicationController
   def index
-    @regions = Region.ordered_regions(params[:sort])
+    @regions = Region.exact_search(params[:search]).
+    partial_search(params[:search_partial]).ordered_regions(params[:sort])
   end
 
   def show

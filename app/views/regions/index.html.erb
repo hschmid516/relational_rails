@@ -4,6 +4,16 @@
     <a href="/locations">All Locations</a>
     <h1 id="zelda">Legend of Zelda: <br>Breath of the Wild - Regions</h1>
 
+    <%= form_with url: "/regions", method: :get, local: true do |f| %>
+    <%= f.text_field :search %>
+    <%= f.submit "Search by Exact Name", class: 'button_search' %>
+    <% end %><br>
+
+    <%= form_with url: "/regions", method: :get, local: true do |f| %>
+    <%= f.text_field :search_partial %>
+    <%= f.submit "Search by Partial Name", class: 'button_search' %>
+    <% end %>
+
     <% @regions.each do |region| %>
     <div class="container">
       <h2><a href="/regions/<%= region.id %>"><%= region.name %></a></h2>
