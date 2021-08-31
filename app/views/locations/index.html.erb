@@ -1,18 +1,23 @@
 <body class="location">
   <div class="location_margin">
-    <a href="/regions">All Regions</a>
+    <ul class='nav'>
+      <li class='nav'><a class='nav' href="/">Home</a></li>
+      <li class='nav'><a class='nav' href="/regions">All Regions</a></li>
+      <li class='nav'><a class='nav' href="/locations">All Locations</a></li>
+    </ul>
+
     <h1 id='zelda'>Legend of Zelda: <br>Breath of the Wild - Locations</h1>
 
     <%= form_with url: "/locations", method: :get, local: true do |f| %>
-    <%= f.text_field :search %>
-    <%= f.submit "Search by Exact Name", class: 'button_search' %>
+    <%= f.text_field :search, class: 'koroks' %>
+    <%= f.submit "Search by Exact Name", class: 'button_location' %>
     <% end %><br>
 
     <%= form_with url: "/locations", method: :get, local: true do |f| %>
-    <%= f.text_field :search_partial %>
-    <%= f.submit "Search by Partial Name", class: 'button_search' %>
+    <%= f.text_field :search_partial, class: 'koroks' %>
+    <%= f.submit "Search by Partial Name", class: 'button_location' %>
     <% end %>
-    
+
     <% @locations.each do |location| %>
       <% if location.is_cold == true %>
       <div class="container">
