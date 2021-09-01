@@ -44,6 +44,8 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'orderly'
+  gem 'faker'
+  gem 'factory_bot_rails'
 end
 
 group :development do

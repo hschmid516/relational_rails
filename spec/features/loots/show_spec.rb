@@ -39,7 +39,7 @@ RSpec.describe "Loots show page", type: :feature do
   it 'can delete loot' do
     visit "/loots/#{@mu_memory.id}"
 
-    click_button 'Delete Memory of a Frenzied Monstrosity'
+    click_button 'Delete'
     expect(current_path).to eq("/loots")
     expect(page).to_not have_content(@mu_memory.name)
   end

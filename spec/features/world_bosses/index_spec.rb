@@ -63,13 +63,17 @@ RSpec.describe "Bosses index page", type: :feature do
   end
 
   it 'shows a link to edit the Boss info' do
-    click_button("Edit #{@mortanis.name}")
-    expect(current_path).to eq("/world_bosses/#{@mortanis.id}/edit")
+    within "#boss-#{@mortanis.id}" do
+      click_button("Edit")
+      expect(current_path).to eq("/world_bosses/#{@mortanis.id}/edit")
+    end
   end
 
   it 'deletes the boss from the index page' do
-    click_button("Delete #{@mortanis.name}")
-    expect(current_path).to eq("/world_bosses")
+    within "#boss-#{@mortanis.id}" do
+      click_button("Delete")
+      expect(current_path).to eq("/world_bosses")
+    end
     expect(page).to_not have_content("#{@mortanis.name}")
   end
 

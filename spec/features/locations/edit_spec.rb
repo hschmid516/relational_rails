@@ -7,7 +7,7 @@ RSpec.describe 'Location Updates' do
 
     visit "/locations/#{death.id}"
 
-    click_button "Update #{death.name}"
+    click_button "Edit"
 
     expect(current_path).to eq("/locations/#{death.id}/edit")
   end
@@ -20,9 +20,9 @@ RSpec.describe 'Location Updates' do
 
     expect(page).to have_content('Darth Mountain')
 
-    click_button 'Update Darth Mountain'
+    click_button 'Edit'
     fill_in 'Name', with: 'Death Mountain'
-    click_button 'Update Location'
+    click_button 'Update'
 
     expect(current_path).to eq("/locations/#{death.id}")
     expect(page).to have_content('Death Mountain')
