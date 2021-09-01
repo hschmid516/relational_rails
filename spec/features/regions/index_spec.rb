@@ -2,44 +2,43 @@ require 'rails_helper'
 
 RSpec.describe 'regions index page', type: :feature do
   before :each do
-    @great_plateau = Region.create!(name: 'The Great Plateau', has_divine_beast: false, shrines: 4)
-    @akkala = Region.create!(name: 'Akkala', has_divine_beast: false, shrines: 8)
-    @akkala.locations.create!(name: 'Tarrey Town', is_cold: true, korok_seeds: 13)
-    @great_plateau.locations.create!(name: 'Mount Hylia', is_cold: true, korok_seeds: 11)
-    @great_plateau.locations.create!(name: 'Temple of Time', is_cold: true, korok_seeds: 8)
-
+    @region1 = create(:region)
+    @region2 = create(:region, name: :Akkala)
+    @location1 = create(:location, region: @region1)
+    @location2 = create(:location, region: @region2)
+    @location3 = create(:location, region: @region2)
     visit '/regions'
   end
 
   it 'can see all regions recorded in the system' do
     expect(current_path).to eq('/regions')
-    expect(page).to have_content(@great_plateau.name)
-    expect(page).to have_content(@akkala.name)
+    expect(page).to have_content(@region1.name)
+    expect(page).to have_content(@region2.name)
     expect(page).to have_content('Legend of Zelda: Breath of the Wild - Regions')
   end
 
   it 'has a link to each region' do
-    expect(page).to have_link(@great_plateau.name)
-    expect(page).to have_link(@akkala.name)
+    expect(page).to have_link(@region1.name)
+    expect(page).to have_link(@region2.name)
 
-    click_link @great_plateau.name
+    click_link @region1.name
 
-    expect(current_path).to eq("/regions/#{@great_plateau.id}")
+    expect(current_path).to eq("/regions/#{@region1.id}")
 
     visit '/regions'
 
-    click_link @akkala.name
+    click_link @region2.name
 
-    expect(current_path).to eq("/regions/#{@akkala.id}")
+    expect(current_path).to eq("/regions/#{@region2.id}")
   end
 
   it 'shows regions ordered by most recently created' do
-    expect(@akkala.name).to appear_before(@great_plateau.name)
+    expect(@region2.name).to appear_before(@region1.name)
   end
 
   it 'shows created at next to each name' do
-    expect(page).to have_content(@great_plateau.created_at)
-    expect(page).to have_content(@akkala.created_at)
+    expect(page).to have_content(@region1.created_at)
+    expect(page).to have_content(@region2.created_at)
   end
 
   it 'has links to all regions and locations' do
@@ -49,45 +48,45 @@ RSpec.describe 'regions index page', type: :feature do
   end
 
   it 'can update regions from index page' do
-    within "#region-#{@great_plateau.id}" do
+    within "#region-#{@region1.id}" do
       click_button("Edit")
 
-      expect(current_path).to eq("/regions/#{@great_plateau.id}/edit")
+      expect(current_path).to eq("/regions/#{@region1.id}/edit")
     end
   end
 
   it 'can delete regions from index page' do
-    within "#region-#{@great_plateau.id}" do
+    within "#region-#{@region1.id}" do
       click_button("Delete")
 
       expect(current_path).to eq('/regions')
     end
 
-      expect(page).to_not have_content(@great_plateau.name.to_s)
+      expect(page).to_not have_content(@region1.name)
   end
 
   it 'sorts regions by number of locations' do
     click_button('Sort by Number of Locations')
 
     expect(current_path).to eq('/regions')
-    expect(@great_plateau.name).to appear_before(@akkala.name)
-    expect(page).to have_content("Number of Locations: #{@great_plateau.location_count}")
-    expect(page).to have_content("Number of Locations: #{@akkala.location_count}")
+    expect(@region2.name).to appear_before(@region1.name)
+    expect(page).to have_content("Number of Locations: #{@region1.location_count}")
+    expect(page).to have_content("Number of Locations: #{@region2.location_count}")
   end
 
   it 'searches for regions by exact name' do
-    fill_in('search', with: @akkala.name.to_s)
+    fill_in('search', with: @region2.name)
     click_button('Search by Exact Name')
 
-    expect(page).to have_content(@akkala.name.to_s)
-    expect(page).to_not have_content(@great_plateau.name.to_s)
+    expect(page).to have_content(@region2.name)
+    expect(page).to_not have_content(@region1.name)
   end
 
   it 'searches for regions by partial name' do
     fill_in('search_partial', with: 'akk')
     click_button('Search by Partial Name')
 
-    expect(page).to have_content(@akkala.name.to_s)
-    expect(page).to_not have_content(@great_plateau.name.to_s)
+    expect(page).to have_content(@region2.name)
+    expect(page).to_not have_content(@region1.name)
   end
 end

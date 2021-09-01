@@ -3,7 +3,6 @@ require 'rails_helper'
 describe Region, type: :model do
   it { validate_presence_of :name }
   it { validate_presence_of :shrines }
-
   it { should have_many :locations }
 
   before(:each) do
