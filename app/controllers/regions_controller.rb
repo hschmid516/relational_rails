@@ -8,8 +8,13 @@ class RegionsController < ApplicationController
   end
 
   def create
-    Region.create!(region_params)
-    redirect_to '/regions'
+    region = Region.create(region_params)
+    if region.save
+      redirect_to '/regions'
+    else
+      flash[:error] = region.errors.full_messages.to_sentence
+      redirect_to '/regions/new'
+    end
   end
 
   def update
@@ -31,4 +36,6 @@ class RegionsController < ApplicationController
   def find_by_id
     @region = Region.find(params[:id])
   end
+
+
 end
