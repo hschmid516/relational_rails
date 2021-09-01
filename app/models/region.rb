@@ -1,4 +1,8 @@
 class Region < ApplicationRecord
+
+  validates_presence_of :name,
+                        :shrines
+                        
   has_many :locations, dependent: :delete_all
 
   def location_count

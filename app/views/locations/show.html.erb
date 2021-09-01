@@ -8,15 +8,15 @@
 
     <h1 id=zelda_show><%= @location.name %></h1>
 
-    <section id='show_p'>ID: <%= @location.id %></section>
-    <section id='show_p'>Region ID: <%= @location.region_id %></section>
-    <section id='show_p'>Created At: <%= @location.created_at %></section>
-    <section id='show_p'>Updated At: <%= @location.updated_at %></section>
-    <section id='show_p'>Is Cold: <%= @location.is_cold %></section>
-    <section id='show_p'>Number of Korok Seeds: <%= @location.korok_seeds %></section><br>
+    <section id='show_p'>ID: <%= @location.id %><br>
+      Region Name: <%= @location.region.name %><br>
+      Is Cold: <%= @location.is_cold %><br>
+      Number of Korok Seeds: <%= @location.korok_seeds %><br>
+      Created At: <%= @location.created_at %><br>
+      Updated At: <%= @location.updated_at %><br><br><br>
+    </section>
 
-
-    <%= button_to "Update #{@location.name}", "/locations/#{@location.id}/edit", method: :get, class: 'button_show' %><br><br>
-    <%= button_to "Delete #{@location.name}", "/locations/#{@location.id}", method: :delete, class: 'button_show' %>
+    <%= button_to "Edit", "/locations/#{@location.id}/edit", method: :get, class: 'button_show' %><br><br>
+    <%= button_to "Delete", "/locations/#{@location.id}", method: :delete, class: 'button_show' %>
   </div>
 </body>

@@ -19,6 +19,7 @@
     <% end %>
 
     <% @locations.each do |location| %>
+    <section id="location-<%= location.id %>">
       <% if location.is_cold == true %>
       <div class="container">
           <h2><a href="/locations/<%= location.id %>"><%= location.name %></a></h2>
@@ -30,10 +31,11 @@
           <p>Is Cold: <%= location.is_cold %></p>
           <p>Number of Korok Seeds: <%= location.korok_seeds %></p>
 
-        <%= button_to "Edit #{location.name}", "/locations/#{location.id}/edit", method: :get, class: 'button_location', form: {style: 'display:inline-block;'} %>
-        <%= button_to "Delete #{location.name}", "/locations/#{location.id}", method: :delete, class: 'button_location', form: {style: 'display:inline-block;'} %><br><br>
+        <%= button_to "Edit", "/locations/#{location.id}/edit", method: :get, class: 'button_location', form: {style: 'display:inline-block;'} %>
+        <%= button_to "Delete", "/locations/#{location.id}", method: :delete, class: 'button_location', form: {style: 'display:inline-block;'} %><br><br>
       </div>
       <% end %>
+    </section>
     <% end %>
   </div>
 </body>

@@ -6,7 +6,7 @@ RSpec.describe 'Region Updates' do
 
     visit "/regions/#{eldin.id}"
 
-    click_button "Edit #{eldin.name}"
+    click_button "Edit"
 
     expect(current_path).to eq("/regions/#{eldin.id}/edit")
   end
@@ -20,12 +20,12 @@ RSpec.describe 'Region Updates' do
 
     visit "/regions/#{eldin.id}"
 
-    click_button 'Edit Eldine'
+    click_button "Edit"
 
     fill_in 'Name', with: 'Eldin'
     click_button 'Update Region'
 
     expect(current_path).to eq("/regions/#{eldin.id}")
-    expect(page).to have_content('Eldin')
+    expect(page).to have_content("#{eldin.name}")
   end
 end

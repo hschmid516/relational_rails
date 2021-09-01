@@ -14,9 +14,7 @@
         Number of Locations: <%= @region.location_count %>
       </section><br>
 
-
-      <%= button_to "Edit #{@region.name}", "/regions/#{@region.id}/edit", method: :get, class: 'button_show' %><br><br>
-      <%= button_to "Delete #{@region.name}", "/regions/#{@region.id}", method: :delete, class: 'button_show' %>
-
+      <%= button_to "Edit", "/regions/#{@region.id}/edit", method: :get, class: 'button_show' %><br><br>
+      <%= button_to "Delete", "/regions/#{@region.id}", method: :delete, class: 'button_show' %>
   </div>
 </body>

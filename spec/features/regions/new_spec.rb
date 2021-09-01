@@ -19,4 +19,25 @@ RSpec.describe 'Region Creation' do
     expect(current_path).to eq('/regions')
     expect(page).to have_content('Eldin')
   end
+
+  it 'shows a flash message if no name or shrines' do
+    visit '/regions/new'
+
+    fill_in('Name', with: 'Eldin')
+    click_button 'Create Region'
+
+    expect(current_path).to eq('/regions/new')
+    expect(page).to have_content("Shrines can't be blank")
+
+    fill_in('shrines', with: 7)
+    click_button 'Create Region'
+
+    expect(current_path).to eq('/regions/new')
+    expect(page).to have_content("Name can't be blank")
+
+    click_button 'Create Region'
+
+    expect(current_path).to eq('/regions/new')
+    expect(page).to have_content("Name can't be blank and Shrines can't be blank")
+  end
 end
