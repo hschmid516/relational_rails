@@ -55,7 +55,7 @@ RSpec.describe "Bosses show page", type: :feature do
   end
 
   it 'deletes a boss' do
-    click_button("Delete Mortanis")
+    click_button("Delete")
     expect(current_path).to eq("/world_bosses")
     expect(page).to_not have_content(@mortanis.name)
 

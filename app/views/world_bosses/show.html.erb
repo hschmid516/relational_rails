@@ -13,9 +13,9 @@
     <a href="/world_bosses/<%= "#{@world_boss.id}"%>/loots"><%= @world_boss.name %> Loot Table </a>
     <p> Pieces of loot: <%= @world_boss.loot_count %></p>
 
-    <%= button_to "Edit #{@world_boss.name}", "/world_bosses/#{@world_boss.id}/edit",
+    <%= button_to "Edit", "/world_bosses/#{@world_boss.id}/edit",
     method: :get, class: 'button' %><br>
-    <%= button_to "Delete #{@world_boss.name}", "/world_bosses/#{@world_boss.id}/delete",
+    <%= button_to "Delete", "/world_bosses/#{@world_boss.id}/delete",
     method: :delete, class: 'button' %>
 
 </div>

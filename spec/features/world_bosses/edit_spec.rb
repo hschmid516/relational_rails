@@ -6,7 +6,7 @@ RSpec.describe 'The boss edit' do
     boss = WorldBoss.create!(name: "Guy", max_health: 10, is_current_boss: false, zone: "The World")
 
     visit "/world_bosses/#{boss.id}"
-    click_button "Edit #{boss.name}"
+    click_button "Edit"
 
     expect(current_path).to eq("/world_bosses/#{boss.id}/edit")
   end
@@ -20,7 +20,7 @@ RSpec.describe 'The boss edit' do
     expect(page).to have_content('adf')
 
     visit "/world_bosses/#{boss.id}"
-    click_button 'Edit adf'
+    click_button 'Edit'
 
     fill_in 'Name', with: 'Guy'
     click_button 'Update Boss'
