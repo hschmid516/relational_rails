@@ -19,6 +19,7 @@
     <% end %><br>
 
     <% @loots.each do |loot| %>
+    <section id="loot-<%= loot.id %>">
       <div class='container'>
         <h3><a href="/loots/<%= loot.id %>"><%= loot.name %></a></h3>
       <ul>
@@ -26,9 +27,10 @@
         <li>Is it a memory? <%= loot.memory %> </li>
         <li> Armor: <%= loot.armor %> </li>
       </ul>
-      <%= button_to "Edit #{loot.name}", "/loots/#{loot.id}/edit", method: :get, class: 'button' %></p>
-      <%= button_to "Delete #{loot.name}", "/loots/#{loot.id}/delete", method: :delete, class: 'button'%></p>
+      <%= button_to "Edit", "/loots/#{loot.id}/edit", method: :get, class: 'button' %><br>
+      <%= button_to "Delete", "/loots/#{loot.id}/delete", method: :delete, class: 'button'%><br><br>
       </div>
+    </section>
     <% end %>
   </div>
 </body>

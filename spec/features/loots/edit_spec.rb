@@ -15,7 +15,7 @@ RSpec.describe 'the loot edit' do
     ring = mortanis.loots.create!(name: "Band of the Risen Bonelord", memory: false, armor: 0)
 
     visit "/loots/#{ring.id}"
-    click_button "Update #{ring.name}"
+    click_button "Update"
 
     expect(current_path).to eq("/loots/#{ring.id}/edit")
   end
@@ -27,7 +27,7 @@ RSpec.describe 'the loot edit' do
     visit "/loots/#{ring.id}"
 
     expect(page).to have_content('sdfasdf')
-    click_button 'Update sdfasdf'
+    click_button 'Update'
 
     fill_in 'Name', with: "Band of the Risen Bonelord"
     click_button 'Update Loot'

@@ -13,11 +13,11 @@
   <li> Boss ID: <%= @loot.world_boss.id %> </li>
   <li> Created at: <%= @loot.created_at %> </li>
   <li> Updated at: <%= @loot.updated_at %> </li>
-  <li>Is it a memory? <%= @loot.memory %> </li>
+  <li> Memory? <%= @loot.memory %> </li>
   <li> Armor: <%= @loot.armor %> </li>
 </ul>
 
-<%= button_to "Update #{@loot.name}", "/loots/#{@loot.id}/edit", method: :get, class: 'button' %><br>
-<%= button_to "Delete #{@loot.name}", "/loots/#{@loot.id}/delete", method: :delete, class: 'button' %>
+<%= button_to "Update", "/loots/#{@loot.id}/edit", method: :get, class: 'button' %><br>
+<%= button_to "Delete", "/loots/#{@loot.id}/delete", method: :delete, class: 'button' %>
 </div>
 </body>
