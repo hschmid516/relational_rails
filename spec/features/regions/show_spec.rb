@@ -46,10 +46,16 @@ RSpec.describe 'Regions show page', type: :feature do
     expect(current_path).to eq("/regions/#{@great_plateau.id}/locations")
   end
 
-  it 'can delete regions' do
-    click_button("Delete #{@great_plateau.name}")
+  it 'can edit redions from show page' do
+    click_button("Edit")
+
+    expect(current_path).to eq("/regions/#{@great_plateau.id}/edit")
+  end
+
+  it 'can delete regions form the show page' do
+    click_button("Delete")
 
     expect(current_path).to eq('/regions')
-    expect(page).to_not have_content(@great_plateau.name.to_s)
+    expect(page).to_not have_content(@great_plateau.name)
   end
 end

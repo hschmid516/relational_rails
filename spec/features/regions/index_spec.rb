@@ -49,16 +49,21 @@ RSpec.describe 'regions index page', type: :feature do
   end
 
   it 'can update regions from index page' do
-    click_button("Edit #{@great_plateau.name}")
+    within "#region-#{@great_plateau.id}" do
+      click_button("Edit")
 
-    expect(current_path).to eq("/regions/#{@great_plateau.id}/edit")
+      expect(current_path).to eq("/regions/#{@great_plateau.id}/edit")
+    end
   end
 
   it 'can delete regions from index page' do
-    click_button("Delete #{@great_plateau.name}")
+    within "#region-#{@great_plateau.id}" do
+      click_button("Delete")
 
-    expect(current_path).to eq('/regions')
-    expect(page).to_not have_content(@great_plateau.name.to_s)
+      expect(current_path).to eq('/regions')
+    end
+
+      expect(page).to_not have_content(@great_plateau.name.to_s)
   end
 
   it 'sorts regions by number of locations' do

@@ -4,9 +4,9 @@ RSpec.describe 'locations index page', type: :feature do
   before :each do
     @region1 = create(:region)
     @region2 = create(:region)
-    @location1 = create(:location, is_cold: :true, region_id: @region1.id)
-    @location2 = create(:location, region_id: @region2.id)
-    @location3 = create(:location, is_cold: :false, region_id: @region2.id)
+    @location1 = create(:location, is_cold: :true, region: @region1)
+    @location2 = create(:location, region: @region2)
+    @location3 = create(:location, is_cold: :false, region: @region2)
     visit '/locations'
   end
 

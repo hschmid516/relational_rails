@@ -36,6 +36,4 @@ class RegionsController < ApplicationController
   def find_by_id
     @region = Region.find(params[:id])
   end
-
-
 end
