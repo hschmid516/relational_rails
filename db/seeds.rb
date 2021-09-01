@@ -17,13 +17,22 @@ akkala = Region.create!(name: "Akkala", has_divine_beast: false, shrines: 8)
 eldin = Region.create!(name: "Eldin", has_divine_beast: true, shrines: 18)
 faron = Region.create!(name: "Faron", has_divine_beast: true, shrines: 12)
 
-akkala.locations.create!(name: "Tarrey Town", is_cold: true, korok_seeds: 13)
+akkala.locations.create!(name: "Tarrey Town", is_cold: false, korok_seeds: 13)
 akkala.locations.create!(name: "Lomei Labrynth", is_cold: true, korok_seeds: 5)
 akkala.locations.create!(name: "Akkala Tower", is_cold: true, korok_seeds: 1)
 
 great_plateau.locations.create!(name: "Mount Hylia", is_cold: true, korok_seeds: 11)
 great_plateau.locations.create!(name: "Temple of Time", is_cold: true, korok_seeds: 8)
 great_plateau.locations.create!(name: "Shrine of Resurrection", is_cold: true, korok_seeds: 7)
+
+eldin.locations.create!(name: "Death Mountain", is_cold: true, korok_seeds: 19)
+eldin.locations.create!(name: "Goron City", is_cold: true, korok_seeds: 4)
+eldin.locations.create!(name: "Broca Island", is_cold: true, korok_seeds: 22)
+eldin.locations.create!(name: "Southern Mine", is_cold: true, korok_seeds: 3)
+eldin.locations.create!(name: "Gorko Tunnel", is_cold: false, korok_seeds: 9)
+
+faron.locations.create!(name: "Necluda Sea", is_cold: true, korok_seeds: 11)
+
 
 mortanis = WorldBoss.create!(name: "Mortanis", max_health:18_466_000, is_current_boss: false, zone: "Maldraxxus")
 muckformed = WorldBoss.create!(name: "Muckformed", max_health:19_000_000, is_current_boss: false, zone: "Revendreth")
