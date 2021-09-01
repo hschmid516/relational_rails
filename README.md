@@ -11,5 +11,5 @@ BE Mod 2 Paired Project
 * Write model and feature tests that fully cover data logic and user behavior
 
 ## Authors
-[Henry Schmid](https://github.com/hschmid516)
+[Henry Schmid](https://github.com/hschmid516)  
 [Laura Court](https://github.com/Lmcourt)
