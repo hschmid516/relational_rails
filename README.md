@@ -10,6 +10,9 @@ BE Mod 2 Paired Project
 * Create instance and class methods on a Rails model that use ActiveRecord methods and helpers
 * Write model and feature tests that fully cover data logic and user behavior
 
+## Database Schema Designer
+![image](https://user-images.githubusercontent.com/78242081/131754393-a6f0335d-694c-467c-be6e-f234cc185658.png)
+
 ## Authors
 [Henry Schmid](https://github.com/hschmid516)  
 [Laura Court](https://github.com/Lmcourt)
